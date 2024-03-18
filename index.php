@@ -23,7 +23,7 @@
         include 'filtro.php';
         ?>
         <?php
-        include 'eventos.php'
+        include 'eventos.php';
         ?>
     </main>
 
