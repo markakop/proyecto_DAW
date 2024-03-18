@@ -1,29 +1,16 @@
 <nav class="navbar navbar-expand-lg nav-event">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="#">Entranet</a>
+        <a class="navbar-brand text-light" href="index.php">Entranet</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Tu cuenta</a>
+                    <a class="nav-link text-light" href="cuenta.php">Tu cuenta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Destacados</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <a class="nav-link text-light" href="destacados.php">Destacados</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled text-light" href="#" tabindex="-1" aria-disabled="true">Disabled</a>

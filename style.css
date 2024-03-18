@@ -1,6 +1,6 @@
 /*Header*/
 .nav-event{
-    background: #ff0000;
+    background: #C33622;
 }
 
 
@@ -59,7 +59,7 @@
     background-position: right 10px center;
     background-size: 12px;
     padding-right: 25px;
-  }
+}
 
 .dropdown:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -172,16 +172,22 @@ a.button-event-red{
 
 
 /* Footer */
+a {
+    text-decoration: none;
+    color: white;
+}
 .pre-footer {
 	background-color: #C33622;
 	color: #FFFFFF;
 	padding-top: 15px;
 	padding-bottom: 25px;
 	margin-top: 60px;
+    text-align: center;
 }
 
 .footer {
 	background-color: #444;
-	color: #AAA;
+	color: white;
 	padding-top: 20px;
+    text-align: center;
 }
