@@ -1,5 +1,8 @@
-<div class="titulo">
-    EVENTOS
+<div class="filtro-eventos">
+    <img class="img-buscar" src="./img/concierto.png" alt="">
+    <div class="filtro-buscar">
+        Eventos
+    </div>
 </div>
 <div class="eventos">
     <div class="evento-container">
