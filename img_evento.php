@@ -4,19 +4,25 @@
     </div>
     <div class="bloque-texts">
         <div class="col-8 detalles">
-            <div class="fecha-evento">2 de agosto 2024</div>
-            <div class="lugar-evento">Castellon de la plana, 24</div>
+            <div class="detalles-ev">
+                <img src="./img/calendario.png" alt="">
+                <div class="titulos">2 de agosto 2024</div>
+            </div>
+            <div class="detalles-ev">
+                <img src="./img/ubicacion.png" alt="">
+                <div class="titulos">Castellon de la plana, 24</div>
+            </div>
         </div>
         <div class="col-4 text-right button-comprar">
             <a class="button-event-red" href="">Comprar</a>
         </div>
     </div>
     <div class="descripcion-evnt">
-        <div class="titulo-evento">
+        <div class="titulos-evento">
             Arenal Sound
         </div>
         <div class="bloque-descripcion">
-            <div class="col-8 event">
+            <div class="col-8 event-text">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Dolorem architecto doloribus necessitatibus quibusdam dicta?
                 Adipisci itaque, expedita eveniet ea, excepturi molestias

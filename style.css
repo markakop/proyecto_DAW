@@ -92,12 +92,12 @@ img.img-fest {
     background-color: #d1d1d1;
     border-radius: 6px;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, .6);
-
 }
 
 .bloque {
     display: flex;
     flex-direction: row;
+    gap: 100px
 }
 
 .texts {
@@ -111,10 +111,10 @@ img.img-fest {
 .event-titulo {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 800;
+    font-weight: 600;
     font-style: normal;
-    font-size: 40px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 30px;
 }
 
 .sitio {
@@ -124,6 +124,9 @@ img.img-fest {
     font-style: normal;
     font-size: 19px;
     line-height: 19px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .fecha {
@@ -135,6 +138,8 @@ img.img-fest {
     line-height: 19px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }
 
 .precio {
@@ -231,7 +236,7 @@ img.img-buscar{
 .filtro-buscar{
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 700;
     font-style: normal;
     font-size: 50px;
     line-height: 50px;
@@ -259,14 +264,49 @@ img.img-nombre{
     box-shadow: 0px 2px 3px rgba(0, 0, 0, .6);
 }
 
+.detalles-ev{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+.titulos{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 19px;
+    line-height: 19px;
+}
+
 .descripcion-evnt{
     padding: 20px 50px;
+}
+
+.titulos-evento{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 18px;
 }
 
 .bloque-descripcion{
     display: flex;
     gap: 15px;
     flex-direction: row;
+    padding-top: 20px;
+}
+
+.event-text{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 20px;
 }
 
 .box-evento{

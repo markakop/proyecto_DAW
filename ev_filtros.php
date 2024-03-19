@@ -15,9 +15,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
 
                 </div>
@@ -47,9 +49,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -77,9 +81,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -107,9 +113,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -137,9 +145,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -167,9 +177,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -197,9 +209,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -227,9 +241,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -257,9 +273,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -287,9 +305,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -317,9 +337,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
@@ -347,9 +369,11 @@
                     Arenal sound
                 </div>
                 <div class="sitio">
+                    <img class="ubicacion" src="./img/ubicacion.png" alt="">
                     Castellon
                 </div>
                 <div class="fecha">
+                    <img class="calendario" src="./img/calendario.png" alt="">
                     2 Agosto 2024
                 </div>
                 <div class="precio">
