@@ -313,3 +313,55 @@ img.img-nombre{
     background-color: #327680;
 }
 
+/* Formulario crear evento */
+.form-event {
+    max-width: 500px;
+    margin: 2em auto 0 auto;
+    padding: 2em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-event label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-event input[type="text"],
+  .form-event input[type="number"],
+  .form-event input[type="date"],
+  .form-event input[type="url"] {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  .form-event input[type="text"]:focus,
+  .form-event input[type="number"]:focus,
+  .form-event input[type="date"]:focus,
+  .form-event input[type="url"]:focus {
+    outline: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-event button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+  }

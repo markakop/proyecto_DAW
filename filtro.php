@@ -13,7 +13,7 @@
                         <option value="dia">Hoy</option>
                         <option value="semana">Esta semana</option>
                         <option value="mes">Este mes</option>
-                        <option value="electronica">Electrón</option>
+                        <option value="trimestre">Este trimestre</option>
                     </select>
                 </div>
 
