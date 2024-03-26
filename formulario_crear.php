@@ -4,7 +4,7 @@
     <input type="text" class="form-control" id="event-name" placeholder="Ingrese el nombre del evento">
   </div>
   <div class="form-group">
-    <label for="event-price">Precio</label>
+    <label for="event-price">Precio (en €)</label>
     <input type="number" class="form-control" id="event-price" placeholder="Ingrese el precio del evento">
   </div>
   <div class="form-group">
