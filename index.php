@@ -21,8 +21,6 @@
     <main>
         <?php
         include 'filtro.php';
-        ?>
-        <?php
         include 'eventos.php';
         ?>
     </main>

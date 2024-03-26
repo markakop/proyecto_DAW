@@ -4,16 +4,15 @@
                     <div class="col-md-4">
                         <h3>Conócenos</h3>
                         <ul style="list-style: none; padding-left: 10px;">
-                            <li><a href="?page=conocenos">Sobre Entranet</a></li>
-                            <li><a href="?page=faq">Preguntas frecuentes</a></li>
-                            <li><a href="?page=faq#cambio_datos" target="_blank">Cambios en tus entradas</a></li>
+                            <li><a href="entranet.php">Sobre Entranet</a></li>
+                            <li><a href="preguntas.php">Preguntas frecuentes</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <h3>Prepara tu evento</h3>
                         <ul style="list-style: none; padding-left: 10px;">
-                            <li><a href="crear_evento.html">Crea tu evento</a></li>
-                            <li><a href="contacto.html">Contacta con nosotros</a></li>
+                            <li><a href="crear_evento.php">Crea tu evento</a></li>
+                            <li><a href="contacto.php">Contacta con nosotros</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
