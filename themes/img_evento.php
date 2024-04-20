@@ -1,6 +1,6 @@
 <div class="bloque-img-evento">
     <div class="bloque-img">
-        <img class="img-nombre" src="./img/event_arenalSound.jpg" alt="">
+        <img class="img-nombre" src="./img/medusa2.jpg" alt="">
     </div>
     <div class="bloque-texts">
         <div class="col-8 detalles">
@@ -38,9 +38,7 @@
                 optio esse blanditiis.
             </div>
             <div class="col-4 box-evento">
-                <div class="genero">
-
-                </div>
+                <img class="img-der-evento" src="./img/medusa3.jpg" alt="">
             </div>
         </div>
     </div>

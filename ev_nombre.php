@@ -13,22 +13,22 @@
 <body>
     <header>
         <?php
-        include 'nav.php';
+        include './themes/nav.php';
         ?>
     </header>
 
 
     <main>
         <?php
-        include 'img_evento.php';
+        include './themes/img_evento.php';
         ?>
     </main>
 
 
     <footer>
         <?php
-            include 'prefooter.php';
-            include 'footer.php';
+            include './themes/prefooter.php';
+            include './themes/footer.php';
         ?>
     </footer>
 
