@@ -13,26 +13,23 @@
 <body>
     <header>
         <?php
-        include './bbdd/conexion_bbdd.php';
-        include './themes/nav.php';
-        $eventos = new Consultas();
-        $datos_eventos = $eventos->obtenerEventos();
+        include 'nav.php';
         ?>
     </header>
 
 
     <main>
         <?php
-        include './themes/filtro.php';
-        include './themes/eventos.php';
+        include 'filtro.php';
+        include 'destacados_evento.php';
         ?>
     </main>
 
 
     <footer>
         <?php
-            include './themes/prefooter.php';
-            include './themes/footer.php';
+            include 'prefooter.php';
+            include 'footer.php';
         ?>
     </footer>
 

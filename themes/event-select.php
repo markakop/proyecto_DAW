@@ -1,15 +1,15 @@
 <div class="bloque-img-evento">
     <div class="bloque-img">
-        <img class="img-nombre" src="./img/medusa2.jpg" alt="">
+        <img class="img-nombre" src="../img/Evento/medusa2.jpg" alt="">
     </div>
     <div class="bloque-texts">
         <div class="col-8 detalles">
             <div class="detalles-ev">
-                <img src="./img/calendario.png" alt="">
+                <img src="../img/iconos/calendario.png" alt="">
                 <div class="titulos">2 de agosto 2024</div>
             </div>
             <div class="detalles-ev">
-                <img src="./img/ubicacion.png" alt="">
+                <img src="../img/iconos/ubicacion.png" alt="">
                 <div class="titulos">Castellon de la plana, 24</div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 optio esse blanditiis.
             </div>
             <div class="col-4 box-evento">
-                <img class="img-der-evento" src="./img/medusa3.jpg" alt="">
+                <img class="img-der-evento" src="../img/Evento/medusa3.jpg" alt="">
             </div>
         </div>
     </div>
