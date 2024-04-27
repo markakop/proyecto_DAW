@@ -6,7 +6,7 @@
     <?php include '../bbdd/conexion_bbdd.php'; 
     $eventos = new Consultas();
     $datos_eventos = $eventos->obtenerEventos();
-    print_r($datos_eventos);
+    //print_r($datos_eventos);
     ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

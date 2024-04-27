@@ -33,7 +33,7 @@
                     <a class="button-event-cat" href="">Festival</a>
                 </div>
                 <div class="button-categoria">
-                    <a class="button-event-red" id="home-event-'.$evento["id_evento"].'" href="">Quiero ir</a>
+                    <a class="button-event-red" href="ev_nombre.php?id_evento='.$evento["id_evento"].'">Quiero ir</a>
                 </div>
             </div>
 

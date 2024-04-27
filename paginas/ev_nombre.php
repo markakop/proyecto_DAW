@@ -14,6 +14,16 @@
     <header>
         <?php
         include '../themes/nav.php';
+        include '../bbdd/conexion_bbdd.php'; 
+
+        $eventos = new Consultas();
+        if(isset($_GET["id_evento"])){
+            $id=$_GET["id_evento"];
+            $evento_select = $eventos->obtenerEventosId($id)[0];
+            //print_r($evento_select);
+        }else{
+            //Hacer error
+        }
         ?>
     </header>
 

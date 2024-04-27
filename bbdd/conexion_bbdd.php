@@ -18,7 +18,12 @@ class Consultas {
 
     // Método para obtener todos los eventos
     public function obtenerEventos() {
-        $sql = "SELECT * FROM Eventos";
+        $sql = "SELECT * FROM eventos";
+        return $this->realizarConsulta($sql);
+    }
+
+    public function obtenerEventosId($id) {
+        $sql = "SELECT * FROM eventos as e join direcciones as d on e.direccion_id=d.id_direccion JOIN provincia as p on d.id_provincia=p.id_provincia WHERE e.id_evento=$id;";
         return $this->realizarConsulta($sql);
     }
 
