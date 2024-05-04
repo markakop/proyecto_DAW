@@ -4,8 +4,8 @@
                     <div class="col-md-4">
                         <h3>Conócenos</h3>
                         <ul style="list-style: none; padding-left: 10px;">
-                            <li><a href="entranet.php">Sobre Entranet</a></li>
-                            <li><a href="preguntas.php">Preguntas frecuentes</a></li>
+                            <li><a href="quienes_somos.php">Sobre Entranet</a></li>
+                            <li><a href="preguntas_frecuentes.php">Preguntas frecuentes</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
@@ -17,10 +17,10 @@
                     </div>
                     <div class="col-md-4">
                         <h3>
-                            <a href="https://www.facebook.com" target="_blank" style="padding: 0px 10px;"><img src="img/si-facebook.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
-                            <a href="https://www.twitter.com" target="_blank" style="padding: 0px 10px;"><img src="img/si-x.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
-                            <a href="https://www.instagram.com" target="_blank" style="padding: 0px 10px;"><img src="img/si-instagram.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
-                            <a href="https://www.youtube.com" target="_blank" style="padding: 0px 10px;"><img src="img/si-youtube.png" width="20" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
+                            <a href="https://www.facebook.com" target="_blank" style="padding: 0px 10px;"><img src="../img/iconos/si-facebook.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
+                            <a href="https://www.twitter.com" target="_blank" style="padding: 0px 10px;"><img src="../img/iconos/si-x.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
+                            <a href="https://www.instagram.com" target="_blank" style="padding: 0px 10px;"><img src="../img/iconos/si-instagram.png" width="16" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
+                            <a href="https://www.youtube.com" target="_blank" style="padding: 0px 10px;"><img src="../img/iconos/si-youtube.png" width="20" style="-webkit-filter: brightness(1000%); -moz-filter: brightness(1000%); filter: brightness(1000%);"></a>
                         </h3>
                         <ul style="list-style: none; padding-left: 10px;">
                             <li><a href="https://www.aepd.es/politica-de-privacidad-y-aviso-legal" target="_blank">Aviso legal</a></li>

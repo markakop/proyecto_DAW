@@ -47,6 +47,19 @@
   transform: scale(1.1);
 }
 
+#button-limpiar {
+  background: #C33622;
+  color: white;
+  border: 1px solid #C33622;
+  transition: all 0.25s ease-out;
+}
+
+#button-limpiar:hover {
+  background: #9c3527;
+  border: 1px solid #9c3527;
+  transform: scale(1.1);
+}
+
 #buscador {
   width: 25%;
 }

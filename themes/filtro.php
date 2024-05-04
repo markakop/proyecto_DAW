@@ -2,30 +2,30 @@
     <div class="row-12 img-filtro">
         <div class="filtro">
             <h1 class="my-4" id="title-filtro">Buscar eventos</h1>
-            <form class="filtro-form">
+            <form class="filtro-form" method="post" action="">
                 <div class="form-group" id="buscador">
-                    <input type="text" class="form-control" id="nombre" name="nombre" style="border-radius: 5px 0px 0px 5px" placeholder="Buscar eventos por nombre, artistas, ciudad..." />
+                    <input type="text" class="form-control" id="nombre" name="nombre" style="border-radius: 5px 0px 0px 5px"
+                         value="<?php echo $nombre ?>" placeholder="Buscar eventos por nombre, artistas, ciudad..." />
                 </div>
 
                 <div class="form-group">
-                    <select class="form-control dropdown" id="fecha" name="fecha">
+                <select class="form-control dropdown" id="fecha" name="fecha">
                         <option value="">Todas las fechas</option>
-                        <option value="dia">Hoy</option>
-                        <option value="semana">Esta semana</option>
-                        <option value="mes">Este mes</option>
-                        <option value="trimestre">Este trimestre</option>
+                        <option value="dia" <?php if ($fecha === "dia") echo "selected";?>>Hoy</option>
+                        <option value="semana" <?php if ($fecha === "semana") echo "selected";?>>Esta semana</option>
+                        <option value="mes" <?php if ($fecha === "mes") echo "selected";?>>Este mes</option>
+                        <option value="trimestre" <?php if ($fecha === "trimestre") echo "selected";?> >Este trimestre</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <select class="form-control dropdown" id="estilo" name="estilo">
                         <option value="">Todos los estilos musicales</option>
-                        <option value="regueton">Reguetón</option>
-                        <option value="urban">Urban</option>
-                        <option value="indie">Indie</option>
-                        <option value="pop">Pop</option>
-                        <option value="electronica">Electrónica</option>
-                        <option value="techno">Techno</option>
+                        <option value="regueton"  <?php if ($estilo === "regueton") echo "selected";?>>Reguetón</option>
+                        <option value="urban" <?php if ($estilo === "urban") echo "selected";?>>Urban</option>
+                        <option value="indie" <?php if ($estilo === "indie") echo "selected";?>>Indie</option>
+                        <option value="pop" <?php if ($estilo === "pop") echo "selected";?>>Pop</option>
+                        <option value="electronica" <?php if ($estilo === "electronica") echo "selected";?>>Electrónica</option>
                     </select>
                 </div>
                 <div class="form-group">

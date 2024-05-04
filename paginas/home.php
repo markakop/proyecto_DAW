@@ -4,9 +4,16 @@
 <head>
     <title>Inicio</title>
     <?php include '../bbdd/conexion_bbdd.php'; 
-    $eventos = new Consultas();
-    $datos_eventos = $eventos->obtenerEventos();
-    //print_r($datos_eventos);
+         $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
+         $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : "";
+         $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : "";
+        $eventos = new Consultas();
+        if ($nombre != "" || $fecha != "" || $estilo != "") {
+            $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo);
+        } 
+        else {
+            $datos_eventos = $eventos->obtenerEventos();
+        }  
     ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

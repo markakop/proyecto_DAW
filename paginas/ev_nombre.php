@@ -19,8 +19,8 @@
         $eventos = new Consultas();
         if(isset($_GET["id_evento"])){
             $id=$_GET["id_evento"];
-            $evento_select = $eventos->obtenerEventosId($id)[0];
-            //print_r($evento_select);
+            $evento_select = $eventos->obtenerEventoId($id);
+            
         }else{
             //Hacer error
         }

@@ -3,33 +3,37 @@
 
 <head>
     <title>Inicio</title>
-
+    <?php 
+        include '../bbdd/conexion_bbdd.php'; 
+        $eventos = new Consultas();
+        $datos_eventos = $eventos->obtenerEventos();
+    ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../estilos/style.css" />
 </head>
 
 <body>
     <header>
         <?php
-        include 'nav.php';
+            include '../themes/nav.php';
         ?>
     </header>
 
 
     <main>
         <?php
-        include 'filtro.php';
-        include 'destacados_evento.php';
+            include '../themes/filtro.php';
+            include '../themes/destacados_evento.php';
         ?>
     </main>
 
 
     <footer>
         <?php
-            include 'prefooter.php';
-            include 'footer.php';
+            include '../themes/prefooter.php';
+            include '../themes/footer.php';
         ?>
     </footer>
 
