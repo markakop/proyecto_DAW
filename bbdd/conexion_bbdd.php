@@ -16,6 +16,29 @@ class Consultas {
         }
     }
 
+    // Función para insertar eventos
+    public function insertarEvento($datosEvento) {
+        $nombre = $datosEvento['nombre'];
+        $precio = $datosEvento['precio'];
+        $fecha = $datosEvento['fecha'];
+        $localizacion = $datosEvento['localizacion'];
+        $url = $datosEvento['url'];
+        $imagen_url = $datosEvento['imagen_url'];
+    
+        $sql = "INSERT INTO eventos (nombre, precio, fecha, localizacion, url, imagen_url) 
+                VALUES ('$nombre', '$precio', '$fecha', '$localizacion', '$url', '$imagen_url')";
+        
+        if ($this->conn->query($sql) === TRUE) {
+            return true; // Insertado correctamente
+        } else {
+            return false; // Error al insertar
+        }
+    }
+
+
+
+
+
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos() {
         $sql = "SELECT e.id_evento id, e.nombre nombre,
