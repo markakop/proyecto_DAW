@@ -18,6 +18,7 @@ class Consultas {
 
     // Función para insertar eventos
     public function insertarEvento($datosEvento) {
+        //NOTA: hay que enviar un correo para la revisión antes de la insercción
         $nombre = $datosEvento['nombre'];
         $precio = $datosEvento['precio'];
         $fecha = $datosEvento['fecha'];
