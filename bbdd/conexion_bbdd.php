@@ -1,13 +1,15 @@
 <?php
-class Consultas {
+class Consultas
+{
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "root";
+    private $password = "";
     private $dbname = "entranet";
     private $conn;
 
     // Constructor para conectar a la base de datos
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
         // Verificar la conexión
@@ -17,7 +19,8 @@ class Consultas {
     }
 
     // Función para insertar eventos
-    public function insertarEvento($datosEvento) {
+    public function insertarEvento($datosEvento)
+    {
         //NOTA: hay que enviar un correo para la revisión antes de la insercción
         $nombre = $datosEvento['nombre'];
         $precio = $datosEvento['precio'];
@@ -25,10 +28,10 @@ class Consultas {
         $localizacion = $datosEvento['localizacion'];
         $url = $datosEvento['url'];
         $imagen_url = $datosEvento['imagen_url'];
-    
+
         $sql = "INSERT INTO eventos (nombre, precio, fecha, localizacion, url, imagen_url) 
                 VALUES ('$nombre', '$precio', '$fecha', '$localizacion', '$url', '$imagen_url')";
-        
+
         if ($this->conn->query($sql) === TRUE) {
             return true; // Insertado correctamente
         } else {
@@ -41,28 +44,25 @@ class Consultas {
 
 
     // Método para obtener todos los eventos para el HOME
-    public function obtenerEventos() {
-        $sql = "SELECT e.id_evento id, e.nombre nombre,
-                       e.fecha fecha, e.precio precio, i.nombre nombre_img,
-                       i.extension extension, i.datos datos,
-                       es.ds_estilo estilo
-                FROM eventos e 
-                    JOIN imagenes i on i.id_imagen=e.imagen_buscador
-                    JOIN estilos es on es.id_estilo=e.id_estilo";
+    public function obtenerEventos()
+    {
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        FROM eventos e JOIN imagenes i on e.imagen_evento=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }
 
     // Método para obtener todos los eventos para el HOME
-    public function obtenerEventosFiltro($nombre, $fecha, $estilo) {
+    public function obtenerEventosFiltro($nombre, $fecha, $estilo)
+    {
         $sql = "SELECT e.id_evento id, e.nombre nombre,
                        e.fecha fecha, e.precio precio, i.nombre nombre_img,
                        i.extension extension, i.datos datos,
                        es.ds_estilo estilo
                 FROM eventos e 
-                    JOIN imagenes i on i.id_imagen=e.imagen_buscador
-                    JOIN estilos es on es.id_estilo=e.id_estilo
+                    JOIN imagenes i on e.imagen_buscador=i.id_imagen
+                    JOIN estilos es on e.id_estilo=es.id_estilo
                 WHERE 1=1 ";
-        if ($nombre != "") 
+        if ($nombre != "")
             $sql .= " AND e.nombre LIKE '%$nombre%' ";
         if ($fecha != "") {
             switch ($fecha) {
@@ -85,7 +85,8 @@ class Consultas {
         return $this->realizarConsulta($sql);
     }
 
-    public function obtenerEventoId($id) {
+    public function obtenerEventoId($id)
+    {
         $sql = "SELECT e.nombre nombre, e.fecha fecha, e.descripcion descripcion, e.url_compra url_compra,
                     d.calle calle, p.codigo_postal codigo_postal, p.provincia provincia,
                     ie.nombre nombre_img_e, ie.extension extension_e, ie.datos imagen_evento,
@@ -93,25 +94,34 @@ class Consultas {
                 FROM eventos e 
                     JOIN direcciones d on e.direccion_id=d.id_direccion 
                     JOIN provincia p on d.id_provincia=p.id_provincia 
-                    JOIN imagenes ie on ie.id_imagen=e.imagen_evento
+                    JOIN imagenes ie on ie.id_imagen=e.imagen_buscador
                     JOIN imagenes ic on ic.id_imagen=e.imagen_cartel
                 WHERE e.id_evento=$id;";
         return $this->realizarConsulta($sql)[0];
     }
 
+    public function obtenerEstilo($evento_nombre){
+        $sql ="SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        FROM eventos e JOIN imagenes i on e.imagen_evento=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo
+        WHERE es.ds_estilo='$evento_nombre'";
+        return $this->realizarConsulta($sql);
+    }
+
     // Método para obtener todas las direcciones
-    public function obtenerDirecciones() {
+    public function obtenerDirecciones()
+    {
         $sql = "SELECT * FROM Direcciones";
         return $this->realizarConsulta($sql);
     }
 
     // Método para realizar una consulta y devolver los resultados
-    private function realizarConsulta($sql) {
+    private function realizarConsulta($sql)
+    {
         $result = $this->conn->query($sql);
         $data = array();
 
         if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {
                 $data[] = $row;
             }
         }
@@ -120,9 +130,8 @@ class Consultas {
     }
 
     // Método para cerrar la conexión a la base de datos
-    public function cerrarConexion() {
+    public function cerrarConexion()
+    {
         $this->conn->close();
     }
 }
-
-?>

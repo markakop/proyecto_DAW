@@ -7,11 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $datosEvento = array(
         'nombre' => $_POST['event-name'],
+        'direccion' => $_POST['event-name'],
         'precio' => $_POST['event-price'],
         'fecha' => $_POST['event-date'],
-        'localizacion' => $_POST['event-location'],
-        'url' => $_POST['event-url'],
-        'imagen_url' => $_POST['event-image-url']
+        'descripcion' => $_POST['event-name'],
+        'imagen_evento' => $_POST['event-name'],
+        'imagen_buscador' => $_POST['event-name'],
+        'imagen_cartel' => $_POST['event-name'],
+        'url_compra' => $_POST['event-name'],
+        'estilo' => $_POST['event-name'],
     );
 
    
