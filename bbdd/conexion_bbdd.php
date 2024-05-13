@@ -3,7 +3,7 @@ class Consultas
 {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     private $dbname = "entranet";
     private $conn;
 
@@ -47,7 +47,7 @@ class Consultas
     public function obtenerEventos()
     {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
-        FROM eventos e JOIN imagenes i on e.imagen_evento=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
+        FROM eventos e JOIN imagenes i on e.imagen_buscador=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }
 
@@ -94,7 +94,7 @@ class Consultas
                 FROM eventos e 
                     JOIN direcciones d on e.direccion_id=d.id_direccion 
                     JOIN provincia p on d.id_provincia=p.id_provincia 
-                    JOIN imagenes ie on ie.id_imagen=e.imagen_buscador
+                    JOIN imagenes ie on ie.id_imagen=e.imagen_evento
                     JOIN imagenes ic on ic.id_imagen=e.imagen_cartel
                 WHERE e.id_evento=$id;";
         return $this->realizarConsulta($sql)[0];
