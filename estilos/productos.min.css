@@ -1,0 +1,241 @@
+body{
+    background-color: #F1EFED;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1em;
+    color: var(--color_principal);
+}
+
+table.products-table {
+    width: 100%;
+}
+
+tr.tit-prod {
+    background-color: #D9D9D9;
+}
+
+span.txtsubtitu {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+    font-weight: 500;
+    color: #696E70;
+    margin-left: 8px;
+}
+
+tr.lines-colors:nth-child(odd) {
+    background-color: #C0D4D6;
+}
+tr.lines-colors:nth-child(even) {
+    background-color: #D6DFE2;
+}
+
+input {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+    font-weight: 500;
+}
+
+tr, td {
+    vertical-align: middle;
+}
+
+input.btn-modify {
+    background-color: #91B4B7;
+    border: transparent;
+    border-radius: 4px;
+    padding: 8px 10px 8px 10px;
+    color: #F1EFED;
+    margin: 12px 0px 12px 0px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.2px;
+    text-align: center;
+}
+
+input.btn-modify:hover {
+    background-color: #6A999E;
+}
+
+input.btn-orange {
+    background-color: #D5712C;
+    color: #F1EFED;
+    border: transparent;
+    border-radius: 4px;
+    margin: 8px;
+    padding: 6px 8px 6px 8px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+input[type="Text"],
+input#order_upd {
+    border-radius: 4px;
+    border: 1px solid #696E70;
+    margin-left: 8px;
+    height: 0;
+    padding: 10px 8px 10px 8px;
+}
+
+td.align-active {
+    text-align: center;
+}
+
+input[type="CHECKBOX"] {
+    width: 20px;
+    height: 20px;
+}
+
+input.btn-orange:hover {
+    background-color: #B86125;
+}
+
+tr.tr-titles {
+    display: flex;
+    justify-content: space-between;
+    background-color: #D6DFE2;
+    padding-bottom: 5px;
+}
+
+td.td-background {
+    background-color: #D6DFE2;
+}
+
+input.margin-top-inpt {
+    margin-top: 6px;
+}
+
+tr.fixed-row {
+    position: sticky;
+    top: 50px;
+}
+
+a.back {
+    display: flex;
+    padding: 16px 18px;
+    justify-content: left;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    color: #696E70;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+    padding-left: 0;
+    width: 20%;
+}
+
+.arrow-right {
+    width: 16px;
+    height: 16px;
+}
+
+form.drag-area {
+    width: 35%;
+    background-color: #E1DDD7;
+    padding: 32px;
+    padding-bottom: 0;
+    gap: 24px;
+}
+
+.drag-area {
+    height: auto;
+   /*  border: 3px dashed #e0eafc; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    background-color:#E8E8E8;
+    width: 100%;
+  }
+  
+  /* .drag-area .tit-image , .drag-area .tit-orden {
+    font-size: 14px;
+    font-weight: 500;
+    color: #34495e;
+  } */
+  
+  /* input#image_url {
+    width: 100%;
+    height: 100px;
+  } */
+
+*{
+    font-family: "Montserrat", sans-serif !important;
+}
+  span.tit-image {
+    color: #55595A;
+    /* font-family: "Montserrat", sans-serif; */
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+}
+
+input#image_url {
+    width: 100%;
+    height: 80px;
+    border: 3px dashed #e0eafc;
+}
+
+input#image_url::file-selector-button {
+    gap: 10px;
+    padding:12px 14px 12px 14px;
+    border: transparent;
+    border-radius: 4px;
+    background-color: #91B4B7;
+    color: #F1EFED;
+    /* font-family: "Montserrat", sans-serif; */
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+}
+
+input.btn-modify.btn-padd {
+    padding: 12px 14px;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+}
+
+span.txtsubtitu.subtit-lang {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+    
+}
+
+input.no-margin {
+    margin: 0;
+}
+
+textarea {
+    border-radius: 4px;
+    border: 1px solid #696E70;
+    padding: 10px 8px 10px 8px;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+    font-weight: 500;
+}
+
+a.link-img {
+    color: #91B4B7;
+}
+
+a.link-img:hover {
+    color: #6A999E;
+}
+
+table.table-img {
+    width: 100%;
+}
