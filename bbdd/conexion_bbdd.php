@@ -18,35 +18,32 @@ class Consultas
         }
     }
 
-    // Función para insertar eventos
-    public function insertarEvento($datosEvento)
+
+    public function modificarEvento($id, $nombre, $precio, $fecha, $activo, $url_compra)
     {
-        //NOTA: hay que enviar un correo para la revisión antes de la insercción
-        $nombre = $datosEvento['nombre'];
-        $precio = $datosEvento['precio'];
-        $fecha = $datosEvento['fecha'];
-        $localizacion = $datosEvento['localizacion'];
-        $url = $datosEvento['url'];
-        $imagen_url = $datosEvento['imagen_url'];
+        $sql = "UPDATE eventos SET nombre='$nombre', precio='$precio', fecha='$fecha', activo='$activo', url_compra='$url_compra WHERE id_evento=$id')";
 
-        $sql = "INSERT INTO eventos (nombre, precio, fecha, localizacion, url, imagen_url) 
-                VALUES ('$nombre', '$precio', '$fecha', '$localizacion', '$url', '$imagen_url')";
-
-        if ($this->conn->query($sql) === TRUE) {
-            return true; // Insertado correctamente
+        if ($this->realizarConsulta($sql)) {
+            return true;
         } else {
-            return false; // Error al insertar
+            return false;
         }
     }
 
+    public function borrarEvento($id){
+        $sql = "DELETE FROM eventos WHERE id = $id";
 
-
-
+        if ($this->realizarConsulta($sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos()
     {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        $sql = "SELECT e.url_compra, e.activo, e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
         FROM eventos e JOIN imagenes i on e.imagen_buscador=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }
@@ -100,8 +97,9 @@ class Consultas
         return $this->realizarConsulta($sql)[0];
     }
 
-    public function obtenerEstilo($evento_nombre){
-        $sql ="SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+    public function obtenerEstilo($evento_nombre)
+    {
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
         FROM eventos e JOIN imagenes i on e.imagen_evento=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo
         WHERE es.ds_estilo='$evento_nombre'";
         return $this->realizarConsulta($sql);
