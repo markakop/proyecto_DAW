@@ -10,6 +10,7 @@ $fecha = $data['fecha'];
 $activo = $data['activo'];
 $url_compra = $data['url_compra'];
 
+
 $result = $eventos->modificarEvento($id, $nombre, $precio, $fecha, $activo, $url_compra);
 
 echo json_encode(['success' => $result]);

@@ -3,7 +3,7 @@ class Consultas
 {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "";
+    private $password = "admin123";
     private $dbname = "entranet";
     private $conn;
 
@@ -21,29 +21,29 @@ class Consultas
 
     public function modificarEvento($id, $nombre, $precio, $fecha, $activo, $url_compra)
     {
-        $sql = "UPDATE eventos SET nombre='$nombre', precio='$precio', fecha='$fecha', activo='$activo', url_compra='$url_compra WHERE id_evento=$id')";
+        $sql = "UPDATE eventos SET nombre='$nombre', precio=$precio, fecha='$fecha', activo='$activo', url_compra='$url_compra' WHERE id_evento=$id";
 
         if ($this->realizarConsulta($sql)) {
-            return true;
+            return "Realizado";
         } else {
-            return false;
+            return "Rechazado";
         }
     }
 
     public function borrarEvento($id){
-        $sql = "DELETE FROM eventos WHERE id = $id";
+        $sql = "DELETE FROM eventos WHERE id_evento = $id";
 
         if ($this->realizarConsulta($sql)) {
-            return true;
+            return "Realizado";
         } else {
-            return false;
+            return "Rechazado";
         }
     }
 
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos()
     {
-        $sql = "SELECT e.url_compra, e.activo, e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        $sql = "SELECT e.url_compra, e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
         FROM eventos e JOIN imagenes i on e.imagen_buscador=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }

@@ -1,4 +1,4 @@
-<link rel='stylesheet' href='../estilos/productos.min.css' type='text/css' />
+<!--<link rel='stylesheet' href='../estilos/productos.min.css' type='text/css' />-->
 
 <?php
 include '../bbdd/conexion_bbdd.php'; 
@@ -54,6 +54,8 @@ function modifica(idP, index) {
         url_compra: url
     };
 
+    console.log(data);
+
     fetch('../bbdd/modificar_evento.php', {
         method: 'POST',
         headers: {
@@ -63,28 +65,35 @@ function modifica(idP, index) {
     }).then(response => response.json())
       .then(result => {
           if(result.success) {
-              alert('Evento modificado exitosamente');
+              console.log(result.success);
           } else {
-              alert('Error al modificar el evento');
+            console.log(result.success);
           }
       });
 }
 
 function borra(idP) {
+
+    var data = {
+        id: idP
+    };
+
+    console.log(data);
+
     if(confirm('¿Está seguro de que desea eliminar este evento?')) {
         fetch('../bbdd/borrar_evento.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id: idP })
+            body: JSON.stringify(data)
         }).then(response => response.json())
           .then(result => {
               if(result.success) {
-                  alert('Evento eliminado exitosamente');
-                  location.reload();
+                    console.log(result.success);
+                    location.reload();
               } else {
-                  alert('Error al eliminar el evento');
+                console.log(result.success);
               }
           });
     }
