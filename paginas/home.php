@@ -4,9 +4,9 @@
 <head>
     <title>Inicio</title>
     <?php include '../bbdd/conexion_bbdd.php'; 
-         $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
-         $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : "";
-         $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : "";
+         $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : null;
+         $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : null;
+         $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : null;
         $eventos = new Consultas();
         if ($nombre != "" || $fecha != "" || $estilo != "") {
             $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo);
@@ -24,7 +24,7 @@
 <body>
     <header>
         <?php
-        include '../themes/nav.php';
+            include '../themes/nav.php';
         ?>
     </header>
 

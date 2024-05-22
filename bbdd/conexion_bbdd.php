@@ -44,23 +44,22 @@ class Consultas
 
 
     // Método para obtener todos los eventos para el HOME
-    public function obtenerEventos()
-    {
+    public function obtenerEventos() {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
         FROM eventos e JOIN imagenes i on e.imagen_buscador=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }
 
     // Método para obtener todos los eventos para el HOME
-    public function obtenerEventosFiltro($nombre, $fecha, $estilo)
-    {
+    public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "") {
         $sql = "SELECT e.id_evento id, e.nombre nombre,
                        e.fecha fecha, e.precio precio, i.nombre nombre_img,
                        i.extension extension, i.datos datos,
-                       es.ds_estilo estilo
+                       es.ds_estilo estilo, t.tipo_evento tipo_evento 
                 FROM eventos e 
                     JOIN imagenes i on e.imagen_buscador=i.id_imagen
                     JOIN estilos es on e.id_estilo=es.id_estilo
+                    JOIN tipo_evento t on t.id_tipo_evento=e.id_tipo_evento 
                 WHERE 1=1 ";
         if ($nombre != "")
             $sql .= " AND e.nombre LIKE '%$nombre%' ";
@@ -82,6 +81,8 @@ class Consultas
         }
         if ($estilo != "")
             $sql .= " AND es.ds_estilo='$estilo' ";
+        if ($tipo != "")
+            $sql .= " AND  t.tipo_evento='$tipo'";
         return $this->realizarConsulta($sql);
     }
 
