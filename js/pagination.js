@@ -1,20 +1,17 @@
 class Pagination {
 
     constructor(options) {
-        //Pagination = Bender.getNewPagination({"items_per_page":1,"data"":patients, "num_numbers_page":4});
-
         this.items_per_page = options.items_per_page;
         this.num_numbers_page = options.num_numbers_page / 2;
         this.data = options.data;
         this.total_items = this.data.length;
         this.total_pages = Math.ceil(this.total_items / this.items_per_page);
-        this.path = options.path;
-        this.all_data = [...this.data];
-        this.filter_data = [];
+        /*this.all_data = [...this.data];
+        this.filter_data = [];*/
 
     }
 
-    searchPatient(keysearch) {
+    /*searchPatient(keysearch) {
         var searh_id = parseInt(keysearch);
         this.filter_data = this.all_data.filter(patients => {
             return (patients.name.toLowerCase().includes(keysearch.toLowerCase()) ||
@@ -161,7 +158,7 @@ class Pagination {
         $('#products-pagination').html(product_elements);
         $('.product-show').html(`Mostrando ${result_products.length} resultados`);
         this.generatePaginatorProducts(page_number);
-    }
+    }*/
 
 
 
@@ -208,34 +205,51 @@ class Pagination {
     }
 
     showPage(page_number) {
-        let result_products;
-        if (this.filter_data.length > 0) {
-            result_products = this.filter_data;
-            
-        } else {
-            result_products = this.data;
-        }
+        let result_events;
+        /*if (this.filter_data.length > 0) {
+            result_events = this.filter_data;
+
+        } else {*/
+            result_events = this.data;
+        //}
         const startIndex = (page_number - 1) * this.items_per_page;
         const endIndex = startIndex + this.items_per_page;
-        const current_pageData = result_products.slice(startIndex, endIndex);
-        const patient_elements = current_pageData.map((patient, index) => `<div class="patient-elements">
-                                                                                <div class="elements-izq">
-                                                                                    <div class="group-1">                        
-                                                                                        <div class="elements-izq-number">${startIndex + index + 1}.</div>
-                                                                                        <div class="elements-izq-photo"><img src="./assets/img/my-account/avatar.svg" alt="Pacientes" width="100%"></div>
-                                                                                    </div>
-                                                                                    
-                                                                                    <div class="group-2">     
-                                                                                        <div class="elements-izq-texts">
-                                                                                            <div class="patient-name">${patient.name} ${patient.last_name}</div>
-                                                                                            <div class="patient-data">${patient.gender}</div>
-                                                                                            <div class="patient-data">${patient.birthday_date} Años</div>
-                                                                                        </div>
-                                                                                        <div class="elements-der"><a class="button-blue button-patient" href="/mi-cuenta?id_patient=${patient.id}">Ver ficha</a></div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>`).join('');
-        $('#patientElements').html(patient_elements);
+        const current_pageData = result_events.slice(startIndex, endIndex);
+        const events_elements = current_pageData.map((eventos, index) => 
+            `<div class="evento-container">
+            
+                <div class="event-img">
+                    <img src="">
+                </div>
+
+                <div class="bloque">
+
+                    <div class="texts">
+                        <div class="event-titulo">${eventos.nombre}</div>
+                        <div class="sitio">
+                            <img class="ubicacion" src="../img/iconos/ubicacion.png" alt="">
+                            Castellon
+                        </div>
+                        <div class="fecha">
+                            <img class="calendario" src="../img/iconos/calendario.png" alt="">
+                            ${eventos.fecha}
+                        </div>
+                        <div class="precio"> Precio ${eventos.precio}€</div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="button-event">
+                            <a class="button-event-cat" href="tipo_evento.php?estilo=${eventos.estilo}">${eventos.estilo}</a>
+                        </div>
+                        <div class="button-categoria">
+                            <a class="button-event-red" href="ev_nombre.php?id_evento=${eventos.id}">Quiero ir</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>`).join('');
+        $('#eventos').html(events_elements);
         this.generatePaginator(page_number);
     }
 

@@ -3,7 +3,7 @@ class Consultas
 {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "admin123";
+    private $password = "";
     private $dbname = "entranet";
     private $conn;
 
@@ -43,7 +43,7 @@ class Consultas
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos()
     {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, es.ds_estilo estilo 
         FROM eventos e JOIN imagenes i on e.imagen_buscador=i.id_imagen JOIN estilos es on e.id_estilo=es.id_estilo;";
         return $this->realizarConsulta($sql);
     }

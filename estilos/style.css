@@ -78,10 +78,12 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-
+div#paginator {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
 /* Contenido principal index */
 .eventos {
@@ -89,8 +91,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 40px;
-  margin-bottom: 50px;
+  gap: 20px;
+  padding: 20px;
 }
 
 img.img-fest {
