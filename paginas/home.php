@@ -8,11 +8,11 @@
     $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : null;
     $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : null;
     $eventos = new Consultas();
-    /*if ($nombre != "" || $fecha != "" || $estilo != "") {
+    if ($nombre != "" || $fecha != "" || $estilo != "") {
         $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo);
-    } else {*/
+    } else {
         $datos_eventos = $eventos->obtenerEventos();
-    //}
+    }
     //print_r($datos_eventos);
     ?>
     <meta charset="utf-8" />

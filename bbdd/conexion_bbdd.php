@@ -52,7 +52,7 @@ class Consultas
     public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "") {
         $sql = "SELECT e.id_evento id, e.nombre nombre,
                        e.fecha fecha, e.precio precio, i.nombre nombre_img,
-                       i.extension extension, i.datos datos,
+                       i.extension extension,
                        es.ds_estilo estilo, t.tipo_evento tipo_evento 
                 FROM eventos e 
                     JOIN imagenes i on e.imagen_buscador=i.id_imagen
