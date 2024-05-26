@@ -111,7 +111,6 @@ input.margin-top-inpt {
 
 tr.fixed-row {
     position: sticky;
-    top: 50px;
 }
 
 a.back {
