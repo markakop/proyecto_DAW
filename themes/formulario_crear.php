@@ -1,27 +1,60 @@
-<form class="form-event" method="post" action="../bbdd/insertar_evento.php">
+<form class="form-event" action="process_event.php" method="post">
   <div class="form-group">
-    <label for="event-name">Nombre del evento</label>
-    <input type="text" class="form-control" id="event-name" name="event-name" placeholder="Ingrese el nombre del evento">
-  </div>
+    <label for="event_name">Nombre del evento:</label>
+    <input type="text" id="event_name" name="event_name" required>
+  </div><br>
+
   <div class="form-group">
-    <label for="event-price">Precio (en €)</label>
-    <input type="number" class="form-control" id="event-price" name="event-price" placeholder="Ingrese el precio del evento">
-  </div>
+    <label for="price">Precio:</label>
+    <input type="number" id="price" name="price" step="0.01" required>
+  </div><br>
+
   <div class="form-group">
-    <label for="event-date">Fecha</label>
-    <input type="date" class="form-control" id="event-date" name="event-date">
-  </div>
+    <label for="event_date">Fecha:</label>
+    <input type="date" id="event_date" name="event_date" required>
+  </div><br>
+
   <div class="form-group">
-    <label for="event-location">Localización</label>
-    <input type="text" class="form-control" id="event-location" name="event-location" placeholder="Ingrese la localización del evento">
-  </div>
+    <label for="description">Descripción:</label><br>
+    <textarea id="description" name="description" rows="10" cols="50" required></textarea>
+  </div><br>
+
   <div class="form-group">
-    <label for="event-url">URL de la página del evento</label>
-    <input type="url" class="form-control" id="event-url" name="event-url" placeholder="Ingrese la URL de la página del evento">
-  </div>
+    <label for="event_url">URL del evento:</label>
+    <input type="url" id="event_url" name="event_url" required>
+  </div><br>
+
   <div class="form-group">
-    <label for="event-image-url">URL de la imagen del evento</label>
-    <input type="url" class="form-control" id="event-image-url" name="event-image-url" placeholder="Ingrese la URL de la imagen del evento">
-  </div>
+    <label for="street">Calle:</label>
+    <input type="text" id="street" name="street" required>
+  </div><br>
+
+  <div class="form-group">
+    <label for="province">Provincia:</label>
+    <select id="province" name="province" required>
+      <?php
+      // Completar con las opciones de provincia desde la base de datos
+      ?>
+    </select>
+  </div><br>
+  
+  <div class="form-group">
+    <label for="music_style">Estilo de música:</label>
+    <select id="music_style" name="music_style" required>
+      <?php
+      // Completar con las opciones de estilo de música desde la base de datos
+      ?>
+    </select>
+  </div><br>
+
+  <div class="form-group">
+    <label for="event_type">Tipo de evento:</label>
+    <select id="event_type" name="event_type" required>
+      <?php
+      // Completar con las opciones de tipo de evento desde la base de datos
+      ?>
+    </select>
+  </div><br>
+
   <button type="submit" class="btn btn-primary">Crear evento</button>
 </form>
