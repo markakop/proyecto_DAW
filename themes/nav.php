@@ -13,7 +13,7 @@
                     <a class="nav-link text-light" href="destacados.php">Destacados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled text-light" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link text-light" href="zona-admin.php" >Zona admin</a>
                 </li>
             </ul>
         </div>

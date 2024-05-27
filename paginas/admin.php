@@ -1,10 +1,9 @@
-<!--<link rel='stylesheet' href='../estilos/productos.min.css' type='text/css' />-->
+<link rel='stylesheet' href='../estilos/productos.min.css' type='text/css' />
 
 <?php
 include '../bbdd/conexion_bbdd.php'; 
 $eventos = new Consultas();
 $datos_eventos = $eventos->obtenerEventos();
-
 if($datos_eventos>0){ ?>
 <table cellpadding="2" cellspacing="0" width="100%">
 <form name="listado">

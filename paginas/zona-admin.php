@@ -2,18 +2,25 @@
 <html lang="es">
 
 <head>
-    <title>Inicio</title>
+    <title>Zona Admin</title>
     <?php include '../bbdd/conexion_bbdd.php';
-    $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : null;
-    $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : null;
-    $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : null;
     $eventos = new Consultas();
-    if ($nombre != "" || $fecha != "" || $estilo != "") {
-        $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo);
-    } else {
-        $datos_eventos = $eventos->obtenerEventos();
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        if (!empty($username) && !empty($password)) {
+            $result = $eventos->login($username, $password);
+            if ($result) {
+                header("Location: ../paginas/admin.php");
+                exit();
+            } else {
+                echo "<script type='text/javascript'>alert('Usuario o contraseña incorrectos');</script>";
+            }
+        }
     }
-    //print_r($datos_eventos);
+
     ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -30,10 +37,18 @@
     </header>
 
     <main>
-        <?php
-        include '../themes/filtro.php';
-        include '../themes/eventos.php';
-        ?>
+        <div class="login-block">
+                <h2>Login</h2>
+                <form action="#" method="post" class="form-login">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+        </div>
     </main>
 
     <footer>
@@ -43,21 +58,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script>
-        var PaginationReal;
-        var eventos_java = <?php echo json_encode($datos_eventos);  ?>;
-    </script>
-     <script type="module">
-        import {
-            Pagination
-        } from "../js/pagination.js";
-        PaginationReal = new Pagination({
-            "items_per_page": 6,
-            "data": eventos_java,
-            "num_numbers_page": 4
-        });
-        PaginationReal.showPage(1);
-    </script>
+
 </body>
 
 </html>

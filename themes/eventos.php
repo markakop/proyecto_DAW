@@ -4,11 +4,12 @@
         Eventos
     </div>
 </div>
-<div class="eventos">
 
-    <?php foreach ($datos_eventos as $evento) {
+<div class="eventos" id="eventos">
+
+    <?php /*foreach ($datos_eventos as $evento) {
         $imagen_src = 'data:' . $evento['extension'] . ';base64,' . base64_encode($evento['datos']);
-        echo 
+        echo
         '<div class="evento-container">
             
             <div class="event-img">
@@ -18,31 +19,31 @@
             <div class="bloque">
 
                 <div class="texts">
-                    <div class="event-titulo">'.$evento["nombre"].'</div>
+                    <div class="event-titulo">' . $evento["nombre"] . '</div>
                     <div class="sitio">
                         <img class="ubicacion" src="../img/iconos/ubicacion.png" alt="">
                         Castellon
                     </div>
                     <div class="fecha">
                         <img class="calendario" src="../img/iconos/calendario.png" alt="">
-                        '.$evento["fecha"].'
+                        ' . $evento["fecha"] . '
                     </div>
-                    <div class="precio"> Precio '.$evento["precio"].'€</div>
+                    <div class="precio"> Precio ' . $evento["precio"] . '€</div>
                 </div>
 
                 <div class="buttons">
                     <div class="button-event">
-                        <a class="button-event-cat" href="tipo_evento.php?estilo='.$evento["estilo"].'">'.$evento["estilo"].'</a>
+                        <a class="button-event-cat" href="tipo_evento.php?estilo=' . $evento["estilo"] . '">' . $evento["estilo"] . '</a>
                     </div>
                     <div class="button-categoria">
-                        <a class="button-event-red" href="ev_nombre.php?id_evento='.$evento["id"].'">Quiero ir</a>
+                        <a class="button-event-red" href="ev_nombre.php?id_evento=' . $evento["id"] . '">Quiero ir</a>
                     </div>
                 </div>
 
             </div>
 
         </div>';
-    }
+    }*/
     ?>
-
 </div>
+<div class="patient-page" id="paginator">HOLA</div>
