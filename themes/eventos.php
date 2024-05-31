@@ -7,13 +7,12 @@
 
 <div class="eventos" id="eventos">
 
-    <?php /*foreach ($datos_eventos as $evento) {
-        $imagen_src = 'data:' . $evento['extension'] . ';base64,' . base64_encode($evento['datos']);
+    <?php foreach ($datos_eventos as $evento) {
         echo
         '<div class="evento-container">
             
             <div class="event-img">
-                <img src="' . $imagen_src . '" alt="' . $evento['nombre_img'] . '">
+                <img src="' . $evento['url_imagen']. '" alt="' . $evento['nombre_img'] . '">
             </div>
 
             <div class="bloque">
@@ -43,7 +42,7 @@
             </div>
 
         </div>';
-    }*/
+    }
     ?>
 </div>
 <div class="patient-page" id="paginator">HOLA</div>

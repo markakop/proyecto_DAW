@@ -1,10 +1,8 @@
 <?php if(!$evento_select == 0){
-$imagen_evento = 'data:' . $evento_select['extension_e'] . ';base64,' . base64_encode($evento_select['imagen_evento']);
-$imagen_cartel = 'data:' . $evento_select['extension_c'] . ';base64,' . base64_encode($evento_select['imagen_cartel']);
 echo
  '<div class="bloque-img-evento">
     <div class="bloque-img">
-        <img class="img-nombre" src="' . $imagen_evento . '" alt="' . $evento_select['nombre_img_e'] . '">
+        <img class="img-nombre" src="' . $evento_select['url_buscador'] . '" alt="' . $evento_select['nombre_img_e'] . '">
     </div>
     <div class="bloque-texts">
         <div class="col-8 detalles">
@@ -30,7 +28,7 @@ echo
                 '.$evento_select["descripcion"].'
             </div>
             <div class="col-4 box-evento">
-                 <img class="img-der-evento" src="' . $imagen_cartel . '" alt="' . $evento_select['nombre_img_e'] . '">
+                 <img class="img-der-evento" src="' . $evento_select['url_cartel'] . '" alt="' . $evento_select['nombre_img_e'] . '">
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ class Consultas
 {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     private $dbname = "entranet";
     private $conn;
 
@@ -65,7 +65,7 @@ class Consultas
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos()
     {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension extension, es.ds_estilo estilo, e.activo, e.url_compra
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo;";
@@ -110,12 +110,12 @@ class Consultas
     {
         $sql = "SELECT e.nombre nombre, e.fecha fecha, e.descripcion descripcion, e.url_compra url_compra, 
                     d.calle calle, p.codigo_postal codigo_postal, p.provincia provincia, 
-                    ie.nombre nombre_img_e, ie.extension extension_e, ie.datos imagen_evento, 
-                    ic.nombre nombre_img_c, ic.extension extension_c, ic.datos imagen_cartel 
+                    ib.nombre nombre_img_e, ib.url url_buscador, 
+                    ic.nombre nombre_img_c, ic.url url_cartel 
                 FROM eventos e 
                 JOIN direcciones d ON e.direccion_id=d.id_direccion 
                 JOIN provincia p ON d.id_provincia=p.id_provincia 
-                JOIN imagenes ie ON ie.id_imagen=e.imagen_evento 
+                JOIN imagenes ib ON ib.id_imagen=e.imagen_buscador
                 JOIN imagenes ic ON ic.id_imagen=e.imagen_cartel 
                 WHERE e.id_evento=$id;";
         return $this->obtenerResultados($sql)[0];
