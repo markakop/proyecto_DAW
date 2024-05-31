@@ -7,9 +7,10 @@
     $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
     $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : "";
     $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : "";
+    $tipo = isset($_POST["tipo"]) ? $_POST["tipo"] : "";
     $eventos = new Consultas();
     if ($nombre != "" || $fecha != "" || $estilo != "") {
-        $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo);
+        $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo, $tipo);
     } else {
         $datos_eventos = $eventos->obtenerEventos();
     }

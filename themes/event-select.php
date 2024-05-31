@@ -12,7 +12,7 @@ echo
             </div>
             <div class="detalles-ev">
                 <img src="../img/iconos/ubicacion.png" alt="">
-                <div class="titulos">'.$evento_select["calle"].', '. $evento_select["provincia"].' '. $evento_select["codigo_postal"] .'</div>
+                <div class="titulos">'.$evento_select["calle"].', '. $evento_select["provincia"].'</div>
             </div>
         </div>
         <div class="col-4 text-right button-comprar">

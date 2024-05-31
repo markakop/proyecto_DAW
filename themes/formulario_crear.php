@@ -1,46 +1,52 @@
+<?php
+    include '../bbdd/conexion_bbdd.php';
+    $eventos = new Consultas();
+?>
+
 <form class="form-event" action="process_event.php" method="post">
   <div class="form-group">
     <label for="event_name">Nombre del evento:</label>
-    <input type="text" id="event_name" name="event_name" required>
+    <input type="text" id="event_name" name="event_name" placeholder="Escribe el nombre del evento">
   </div><br>
 
   <div class="form-group">
     <label for="price">Precio:</label>
-    <input type="number" id="price" name="price" step="0.01" required>
+    <input type="number" id="price" name="price" step="0.01" placeholder="El precio de la entrada, dejala en blanco si la entrada es gratis">
   </div><br>
 
   <div class="form-group">
     <label for="event_date">Fecha:</label>
-    <input type="date" id="event_date" name="event_date" required>
+    <input type="date" id="event_date" name="event_date">
   </div><br>
 
   <div class="form-group">
     <label for="description">Descripción:</label><br>
-    <textarea id="description" name="description" rows="10" cols="50" required></textarea>
+    <textarea id="description" name="description" rows="10" cols="50" placeholder="Una breve descripción del evento"></textarea>
   </div><br>
 
   <div class="form-group">
     <label for="event_url">URL del evento:</label>
-    <input type="url" id="event_url" name="event_url" required>
+    <input type="url" id="event_url" name="event_url" placeholder="URL de la pagina para la compra de entradas">
   </div><br>
 
-  <div class="form-group">
-    <label for="street">Calle:</label>
-    <input type="text" id="street" name="street" required>
-  </div><br>
-
+  
   <div class="form-group">
     <label for="province">Provincia:</label>
-    <select id="province" name="province" required>
+    <select id="province" name="province" placeholder="">
       <?php
       // Completar con las opciones de provincia desde la base de datos
       ?>
     </select>
   </div><br>
+
+  <div class="form-group">
+    <label for="street">Calle:</label>
+    <input type="text" id="street" name="street" placeholder="">
+  </div><br>
   
   <div class="form-group">
     <label for="music_style">Estilo de música:</label>
-    <select id="music_style" name="music_style" required>
+    <select id="music_style" name="music_style" placeholder="">
       <?php
       // Completar con las opciones de estilo de música desde la base de datos
       ?>
@@ -49,7 +55,7 @@
 
   <div class="form-group">
     <label for="event_type">Tipo de evento:</label>
-    <select id="event_type" name="event_type" required>
+    <select id="event_type" name="event_type" placeholder="">
       <?php
       // Completar con las opciones de tipo de evento desde la base de datos
       ?>
