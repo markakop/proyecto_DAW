@@ -8,7 +8,7 @@
         $eventos = new Consultas();
         if(isset($_GET["estilo"])){
             $estilo=$_GET["estilo"];
-            $eventos_estilos = $eventos->obtenerEstilo($estilo);
+            $eventos_estilos = $eventos->obtenerEstiloEvento($estilo);
             
         }else{
             //Hacer error

@@ -1,6 +1,9 @@
 <?php
     include '../bbdd/conexion_bbdd.php';
     $eventos = new Consultas();
+    $provincias = $eventos->obtenerProvincias();
+    $estilos = $eventos->obtenerEstilos();
+    $tipos = $eventos->obtenerTiposEvento();
 ?>
 
 <form class="form-event" action="process_event.php" method="post">
@@ -32,32 +35,41 @@
   
   <div class="form-group">
     <label for="province">Provincia:</label>
-    <select id="province" name="province" placeholder="">
+    <select id="province" name="province">
+      <option value="">Seleccione la provincia donde se realizara su evento</option>
       <?php
-      // Completar con las opciones de provincia desde la base de datos
+        foreach ($provincias as $provincia) {
+          echo "<option value='".$provincia["id_provincia"]."'>".$provincia["provincia"]."</option>";
+        }
       ?>
     </select>
   </div><br>
 
   <div class="form-group">
-    <label for="street">Calle:</label>
-    <input type="text" id="street" name="street" placeholder="">
+    <label for="calle">Calle:</label>
+    <input type="text" id="street" name="calle" placeholder="">
   </div><br>
   
   <div class="form-group">
     <label for="music_style">Estilo de música:</label>
-    <select id="music_style" name="music_style" placeholder="">
+    <select id="music_style" name="estilo-musical">
+      <option value="">Seleccione el estilo musical de su evento</option>
       <?php
-      // Completar con las opciones de estilo de música desde la base de datos
+        foreach ($estilos as $estilo) {
+          echo "<option value='".$estilo["id_estilo"]."'>".$estilo["ds_estilo"]."</option>";
+        }
       ?>
     </select>
   </div><br>
 
   <div class="form-group">
     <label for="event_type">Tipo de evento:</label>
-    <select id="event_type" name="event_type" placeholder="">
+    <select id="event_type" name="tipo-evento">
+      <option value="">Seleccione el tipo de evento</option>
       <?php
-      // Completar con las opciones de tipo de evento desde la base de datos
+        foreach ($tipos as $tipo) {
+          echo "<option value='".$tipo["id_tipo_evento"]."'>".$tipo["tipo_evento"]."</option>";
+        }
       ?>
     </select>
   </div><br>

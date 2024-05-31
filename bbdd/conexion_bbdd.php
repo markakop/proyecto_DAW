@@ -106,14 +106,29 @@ class Consultas {
                 FROM eventos e 
                 JOIN direcciones d ON e.direccion_id=d.id_direccion
                 JOIN localidad l USING(id_localidad)
-                JOIN provincia p USING(id_provincia)
+                JOIN provincias p USING(id_provincia)
                 JOIN imagenes ib ON ib.id_imagen=e.imagen_buscador
                 JOIN imagenes ic ON ic.id_imagen=e.imagen_cartel 
                 WHERE e.id_evento=$id;";
         return $this->obtenerResultados($sql)[0];
     }
 
-    public function obtenerEstilo($evento_nombre) {
+    public function obtenerProvincias() {
+        $sql = "SELECT * FROM provincias;";
+        return $this->obtenerResultados($sql);
+    }
+
+    public function obtenerEstilos() {
+        $sql = "SELECT * FROM estilos;";
+        return $this->obtenerResultados($sql);
+    }
+
+    public function obtenerTiposEvento() {
+        $sql = "SELECT * FROM tipo_evento;";
+        return $this->obtenerResultados($sql);
+    }
+
+    public function obtenerEstiloEvento($evento_nombre) {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_evento=i.id_imagen 
