@@ -109,6 +109,10 @@ img.img-fest {
   width: 40%;
 }
 
+.event-img {
+  max-width: 100%;
+}
+
 .bloque {
   display: flex;
   flex-direction: row;
