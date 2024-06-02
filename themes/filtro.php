@@ -1,3 +1,6 @@
+<?php
+     $estilos = $eventos->obtenerEstilos();
+?>
 <div class="container-fluid filtro">
     <div class="row-12 img-filtro">
         <div class="filtro">
@@ -21,11 +24,11 @@
                 <div class="form-group">
                     <select class="form-control dropdown" id="estilo" name="estilo">
                         <option value="">Todos los estilos musicales</option>
-                        <option value="regueton"  <?php if ($estilo === "regueton") echo "selected";?>>Reguetón</option>
-                        <option value="urban" <?php if ($estilo === "urban") echo "selected";?>>Urban</option>
-                        <option value="indie" <?php if ($estilo === "indie") echo "selected";?>>Indie</option>
-                        <option value="pop" <?php if ($estilo === "pop") echo "selected";?>>Pop</option>
-                        <option value="electronica" <?php if ($estilo === "electronica") echo "selected";?>>Electrónica</option>
+                            <?php
+                                foreach ($estilos as $estilo) {
+                                echo "<option value='".$estilo["id_estilo"]."'>".$estilo["ds_estilo"]."</option>";
+                                }
+                            ?>  
                     </select>
                 </div>
                 <div class="form-group">

@@ -61,18 +61,22 @@ class Consultas {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
-                JOIN estilos es ON e.id_estilo=es.id_estilo;";
+                JOIN estilos es ON e.id_estilo=es.id_estilo
+                WHERE e.activo='S' ";
         return $this->obtenerResultados($sql);
     }
 
     // Método para obtener todos los eventos para el HOME con filtro
-    public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "") {
+    public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
-                JOIN estilos es ON e.id_estilo=es.id_estilo 
-                JOIN tipo_evento t ON t.id_tipo_evento=e.id_tipo_evento 
-                WHERE 1=1 ";
+                JOIN estilos es USING(id_estilo)
+                JOIN tipo_evento t USING(id_tipo_evento)
+                JOIN direcciones d ON d.id_direccion=e.direccion_id
+                JOIN localidades l USING (id_localidad)
+                JOIN provincias p USING (id_provincia)
+                WHERE e.activo='S' ";
         if ($nombre != "")
             $sql .= " AND e.nombre LIKE '%$nombre%' ";
         if ($fecha != "") {
@@ -95,6 +99,8 @@ class Consultas {
             $sql .= " AND es.ds_estilo='$estilo' ";
         if ($tipo != "")
             $sql .= " AND t.tipo_evento='$tipo'";
+        if ($provincia != "") 
+            $sql .= " AND p.provincia='$provincia' ";
         return $this->obtenerResultados($sql);
     }
 
@@ -105,7 +111,7 @@ class Consultas {
                     ic.nombre nombre_img_c, ic.url url_cartel 
                 FROM eventos e 
                 JOIN direcciones d ON e.direccion_id=d.id_direccion
-                JOIN localidad l USING(id_localidad)
+                JOIN localidades l USING(id_localidad)
                 JOIN provincias p USING(id_provincia)
                 JOIN imagenes ib ON ib.id_imagen=e.imagen_buscador
                 JOIN imagenes ic ON ic.id_imagen=e.imagen_cartel 
@@ -115,6 +121,11 @@ class Consultas {
 
     public function obtenerProvincias() {
         $sql = "SELECT * FROM provincias;";
+        return $this->obtenerResultados($sql);
+    }
+
+    public function obtenerLocalidadesProvincia($idProvincia) {
+        $sql = "SELECT * FROM localidades WHERE id_provincia=$idProvincia;";
         return $this->obtenerResultados($sql);
     }
 
