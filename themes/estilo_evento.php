@@ -7,12 +7,11 @@
 <div class="eventos">
 
     <?php foreach ($eventos_estilos as $evento) {
-        $imagen_src = 'data:' . $evento['extension'] . ';base64,' . base64_encode($evento['datos']);
         echo 
         '<div class="evento-container">
             
             <div class="event-img">
-                <img src="' . $imagen_src . '" alt="' . $evento['nombre_img'] . '">
+                <img src="'.$evento["url"].'">
             </div>
 
             <div class="bloque">

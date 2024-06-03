@@ -6,13 +6,13 @@
 </div>
 
 <div class="eventos" id="eventos">
-
+    
     <?php foreach ($datos_eventos as $evento) {
         echo
         '<div class="evento-container">
             
             <div class="event-img">
-                <img src="' . $evento['url_imagen']. '" alt="' . $evento['nombre_img'] . '">
+                <img src="'.$evento["url"].'" alt="' . $evento["nombre"] . '">
             </div>
 
             <div class="bloque">
@@ -45,4 +45,4 @@
     }
     ?>
 </div>
-<div class="patient-page" id="paginator">HOLA</div>
+<div class="patient-page" id="paginator"></div>

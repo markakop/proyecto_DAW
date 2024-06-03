@@ -37,17 +37,27 @@
     </header>
 
     <main>
-        <div class="login-block">
-                <h2>Login</h2>
-                <form action="#" method="post" class="form-login">
-                    <label for="username">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username" required>
+        <div class="container-login">
+            <div class="img-login">
+                <img src="../img/iconos/login.webp" width="100%" alt="Imagen login">
+            </div>
 
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
+            <div class="login-block">
+                <h2 class="title-login">Login</h2>
 
-                    <button type="submit">Iniciar sesión</button>
-                </form>
+                <div class="form-login">
+                    <form action="#" method="post" class="form-login">
+                        <label class="label-login" for="username">Nombre de usuario:</label>
+                        <input class="input-login" type="text" id="username" name="username" required placeholder="Usuario">
+
+                        <label class="label-login" for="password">Contraseña:</label>
+                        <input class="input-login" type="password" id="password" name="password" required required placeholder="Contraseña">
+
+                        <button class="send-button " type="submit">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </main>
 

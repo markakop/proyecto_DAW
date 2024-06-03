@@ -15,6 +15,8 @@
     } else {
         $datos_eventos = $eventos->obtenerEventos();
     }
+
+    //print_r($datos_eventos);
     
     ?>
     <meta charset="utf-8" />
