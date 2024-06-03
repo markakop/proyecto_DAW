@@ -140,7 +140,7 @@ class Consultas {
     }
 
     public function obtenerEstiloEvento($evento_nombre) {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_evento=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo 
