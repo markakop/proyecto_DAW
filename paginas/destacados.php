@@ -24,7 +24,7 @@
 
     <main>
         <?php
-            include '../themes/filtro.php';
+            //include '../themes/filtro.php';
             include '../themes/destacados_evento.php';
         ?>
     </main>

@@ -4,6 +4,7 @@
 <head>
     <title>Zona Admin</title>
     <?php include '../bbdd/conexion_bbdd.php';
+    
     $eventos = new Consultas();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +13,9 @@
 
         if (!empty($username) && !empty($password)) {
             $result = $eventos->login($username, $password);
+            session_start();
             if ($result) {
+                $_SESSION['loggedin'] = true;
                 header("Location: ../paginas/admin.php");
                 exit();
             } else {

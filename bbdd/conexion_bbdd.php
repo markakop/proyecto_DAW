@@ -2,7 +2,7 @@
 class Consultas {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "root";
+    private $password = "";
     private $dbname = "entranet";
     private $conn;
 
@@ -66,9 +66,17 @@ class Consultas {
         return $this->obtenerResultados($sql);
     }
 
+    public function obtenerEventosAdmin() {
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
+                FROM eventos e 
+                JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
+                JOIN estilos es ON e.id_estilo=es.id_estilo";
+        return $this->obtenerResultados($sql);
+    }
+
     // Método para obtener todos los eventos para el HOME con filtro
     public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es USING(id_estilo)
@@ -140,7 +148,7 @@ class Consultas {
     }
 
     public function obtenerEstiloEvento($evento_nombre) {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, i.datos datos, es.ds_estilo estilo 
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo 
