@@ -165,8 +165,8 @@ img.img-fest {
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 36px;
+  line-height: 36px;
 }
 
 .sitio {
@@ -203,7 +203,6 @@ img.img-fest {
   line-height: 19px;
   display: flex;
   flex-direction: row;
-  padding-bottom: 20px;
   color: #327680;
 }
 
@@ -289,8 +288,8 @@ img.img-buscar {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-size: 50px;
-  line-height: 50px;
+  font-size: 72px;
+  line-height: 80px;
   padding-left: 20px;
   color: white;
 }
@@ -662,4 +661,161 @@ form.form-login {
   line-height: 18px;
   letter-spacing: -0.3px;
   cursor: pointer;
+}
+
+a.nav-link.text-light {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+a.navbar-brand.text-light {
+  font-size: 28px;
+  line-height: 29px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1760px) {
+  .filtro-buscar {
+    font-size: 56px;
+    line-height: 56px;
+  }
+
+  .event-titulo {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  a.nav-link.text-light {
+    font-size: 17px;
+    line-height: 17px;
+  }
+
+  a.navbar-brand.text-light {
+    font-size: 23px;
+    line-height: 23px;
+  }
+
+  .evento-container {
+    width: 40%;
+  }
+
+}
+
+@media screen and (min-width: 701px) and (max-width: 1399px) {
+  a.nav-link.text-light {
+    font-size: 17px;
+    line-height: 17px;
+  }
+
+  a.navbar-brand.text-light {
+    font-size: 23px;
+    line-height: 23px;
+  }
+
+  .filtro-buscar {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .event-titulo {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  div#paginator {
+    font-size: 18px;
+  }
+
+  a.button-event-cat {
+    font-size: 17px;
+    line-height: 19px;
+  }
+
+  a.button-event-red {
+    font-size: 17px;
+    line-height: 19px;
+  }
+
+  .sitio {
+
+    font-size: 17px;
+    line-height: 19px;
+  }
+
+  .fecha {
+    font-size: 17px;
+    line-height: 19px;
+  }
+
+  .precio {
+    font-size: 17px;
+    line-height: 19px;
+  }
+
+  .evento-container {
+    width: 40%;
+  }
+
+  .login-block {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .container-login {
+    flex-direction: column-reverse;
+  }
+
+}
+
+
+@media screen and (min-width: 60px) and (max-width: 700px) {
+
+  a.nav-link.text-light {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  a.navbar-brand.text-light {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .filtro-buscar {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
+  .evento-container {
+    width: 100%;
+  }
+
+  .filtro-eventos {
+    padding: 20px;
+  }
+
+  img.img-buscar {
+    width: 10%;
+  }
+
+  .event-titulo {
+    font-size: 17px;
+    line-height: 20px;
+  }
+
+  .sitio,
+  .precio,
+  .fecha {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  a.button-event-cat,
+  a.button-event-red {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
