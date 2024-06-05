@@ -41,7 +41,7 @@
               <option value="">Seleccione la provincia donde se realizara su evento</option>
               <?php
                   foreach ($provincias as $provincia) {
-                      echo "<option value='".$provincia["id_provincia"]."'>".$provincia["provincia"]."</option>";
+                      echo "<option value='".$provincia["id_provincia"]."'>". utf8_encode($provincia["provincia"])."</option>";
                   }
             ?>
           </select>

@@ -25,8 +25,10 @@
                     <select class="form-control dropdown" id="estilo" name="estilo">
                         <option value="">Todos los estilos musicales</option>
                             <?php
-                                foreach ($estilos as $estilo) {
-                                echo "<option value='".$estilo["id_estilo"]."'>".$estilo["ds_estilo"]."</option>";
+                                foreach ($estilos as $estilo_select) {
+                                    echo "<option ";
+                                    if ($estilo == $estilo_select["id_estilo"]) echo "selected";
+                                    echo " value='".$estilo_select["id_estilo"]."'>".$estilo_select["ds_estilo"]."</option>";
                                 }
                             ?>  
                     </select>

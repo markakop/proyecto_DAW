@@ -68,7 +68,7 @@ class Consultas {
 
     // Método para obtener todos los eventos para el HOME con filtro
     public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url url_imagen
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es USING(id_estilo)
@@ -96,7 +96,7 @@ class Consultas {
             }
         }
         if ($estilo != "")
-            $sql .= " AND es.ds_estilo='$estilo' ";
+            $sql .= " AND es.id_estilo='$estilo' ";
         if ($tipo != "")
             $sql .= " AND t.tipo_evento='$tipo'";
         if ($provincia != "") 
