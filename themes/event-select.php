@@ -21,7 +21,7 @@ echo
     </div>
     <div class="descripcion-evnt">
         <div class="titulos-evento">
-            '.$evento_select["nombre"].'
+            '.iconv('ISO-8859-1', 'UTF-8', $evento_select["nombre"]).'
         </div>
         <div class="bloque-descripcion">
             <div class="col-8 event-text">

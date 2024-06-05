@@ -26,7 +26,7 @@
   <div class="row">
       <div class="form-group col-sm-12">
           <label for="description">Descripción:</label>
-          <textarea id="description" name="description" rows="10" cols="50" placeholder="Una breve descripción del evento"></textarea>
+          <textarea id="description" name="description" rows="3" cols="50" placeholder="Una breve descripción del evento"></textarea>
       </div>
   </div></br>
 
@@ -41,7 +41,18 @@
               <option value="">Seleccione la provincia donde se realizara su evento</option>
               <?php
                   foreach ($provincias as $provincia) {
-                      echo "<option value='".$provincia["id_provincia"]."'>". utf8_encode($provincia["provincia"])."</option>";
+                    echo "<option value='".$provincia["id_provincia"]."'>". iconv('ISO-8859-1', 'UTF-8', $provincia["provincia"])."</option>";
+                  }
+            ?>
+          </select>
+      </div>
+      <div class="form-group col-sm-4">
+          <label for="locallidad">Provincia:</label>
+          <select id="localidad" name="localidad">
+              <option value=""></option>
+              <?php
+                  foreach ($provincias as $provincia) {
+                    echo "<option value='".$provincia["id_provincia"]."'>". mb_convert_encoding($provincia["provincia"], 'UTF-8', 'auto')."</option>";
                   }
             ?>
           </select>

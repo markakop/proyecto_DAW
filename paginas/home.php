@@ -19,8 +19,7 @@
 
     $mostrar_eventos = [];
     foreach ($datos_eventos as $evento) {
-
-        $evento["nombre"] =   utf8_encode( $evento["nombre"] );
+        $evento["nombre"] =   iconv('ISO-8859-1', 'UTF-8', $evento["nombre"]);
         $mostrar_eventos[]= $evento;
     }
     
