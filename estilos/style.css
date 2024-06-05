@@ -1,8 +1,21 @@
 /*Header*/
 .nav-event {
-  background: #C33622;
+  background: #ff0000;
 }
 
+main {
+  background: black;
+}
+
+span.page-link.active {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 23px;
+  line-height: 40px;
+  color: #ff0000;
+}
 
 /* Filtro */
 .img-filtro {
@@ -35,15 +48,14 @@
 }
 
 #button-filtro {
-  background: #C33622;
+  background: #ff2323;
   color: white;
   border: 1px solid #C33622;
   transition: all 0.25s ease-out;
 }
 
 #button-filtro:hover {
-  background: #9c3527;
-  border: 1px solid #9c3527;
+  background: #ff0000;
   transform: scale(1.1);
 }
 
@@ -83,6 +95,18 @@ div#paginator {
   display: flex;
   justify-content: center;
   gap: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 50px;
+  padding-left: 20px;
+  color: white;
 }
 
 /* Contenido principal index */
@@ -91,8 +115,8 @@ div#paginator {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 20px;
   padding: 20px;
+  gap: 30px;
 }
 
 img.img-fest {
@@ -103,10 +127,18 @@ img.img-fest {
   gap: 20px;
   display: flex;
   flex-direction: column;
-  background-color: #d1d1d1;
+  background-color: #dcdcdc;
   border-radius: 6px;
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, .6);
-  width: 40%;
+  box-shadow: 2px 2px 14px 0px #fff;
+  width: 30%;
+}
+
+.evento-container {
+  transition: transform 0.3s ease;
+}
+
+.evento-container:hover {
+  transform: scale(1.05);
 }
 
 .event-img img {
@@ -183,7 +215,7 @@ img.img-fest {
 }
 
 a.button-event-red {
-  background-color: #e63d3d;
+  background-color: #3c969e;
   padding: 10px 10px;
   border-radius: 4px;
   color: white;
@@ -197,11 +229,11 @@ a.button-event-red {
 }
 
 .button-event-red:hover {
-  background-color: #d42e2e;
+  background-color: #327680;
 }
 
 a.button-event-cat {
-  background-color: #2199d6;
+  background-color: #7c7c7cd6;
   padding: 10px 10px;
   border-radius: 4px;
   color: white;
@@ -215,7 +247,7 @@ a.button-event-cat {
 }
 
 .button-event-cat:hover {
-  background-color: #116193;
+  background-color: #656565;
 }
 
 
@@ -226,7 +258,7 @@ a {
 }
 
 .pre-footer {
-  background-color: #C33622;
+  background-color: #ff0000;
   color: #FFFFFF;
   padding-top: 15px;
   padding-bottom: 25px;
@@ -260,6 +292,7 @@ img.img-buscar {
   font-size: 50px;
   line-height: 50px;
   padding-left: 20px;
+  color: white;
 }
 
 /*ev_nombre*/
@@ -308,8 +341,9 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 24px;
+  line-height: 24px;
+  color: white;
 }
 
 .bloque-descripcion {
@@ -324,8 +358,9 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
+  font-size: 17px;
   line-height: 20px;
+  color: white;
 }
 
 .box-evento {
@@ -503,6 +538,12 @@ textarea {
 
 .img-der-evento {
   width: 100%;
+}
+
+.eventos-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /*Login */
