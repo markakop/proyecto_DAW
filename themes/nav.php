@@ -10,9 +10,6 @@
                     <a class="nav-link text-light" href="crear_evento.php">Crear evento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="destacados.php">Destacados</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-light" href="zona-admin.php" >Zona admin</a>
                 </li>
             </ul>

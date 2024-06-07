@@ -327,8 +327,8 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
-  font-size: 19px;
-  line-height: 19px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .descripcion-evnt {
@@ -340,8 +340,8 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 36px;
+  line-height: 40px;
   color: white;
 }
 
@@ -357,13 +357,9 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-size: 17px;
-  line-height: 20px;
   color: white;
-}
-
-.box-evento {
-  background-color: #327680;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 /* Formulario crear evento/contacto*/
@@ -699,6 +695,21 @@ a.navbar-brand.text-light {
     width: 40%;
   }
 
+  .titulos-evento {
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .event-text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .titulos {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
 }
 
 @media screen and (min-width: 701px) and (max-width: 1399px) {
@@ -769,6 +780,21 @@ a.navbar-brand.text-light {
     flex-direction: column-reverse;
   }
 
+  .titulos-evento {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .event-text {
+    font-size: 17px;
+    line-height: 20px;
+  }
+
+  .titulos {
+    font-size: 17px;
+    line-height: 20px;
+  }
+
 }
 
 
@@ -817,5 +843,76 @@ a.navbar-brand.text-light {
   a.button-event-red {
     font-size: 16px;
     line-height: 19px;
+  }
+
+  .bloque-texts {
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .descripcion-evnt {
+    padding: 20px;
+    padding-top: 10px;
+  }
+
+  .bloque-descripcion {
+    flex-direction: column;
+  }
+
+  .titulos {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .event-text {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .titulos-evento {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  img.img-nombre {
+    height: 200px;
+  }
+
+  .container-login {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .img-login {
+    width: 100%;
+  }
+
+  .login-block {
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .title-login {
+    font-size: 17px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .label-login {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0px;
+  }
+
+  .filtro-form {
+    flex-direction: column;
+  }
+
+  #buscador {
+    width: 100%;
   }
 }

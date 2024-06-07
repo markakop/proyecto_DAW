@@ -24,10 +24,10 @@ echo
             '.iconv('ISO-8859-1', 'UTF-8', $evento_select["nombre"]).'
         </div>
         <div class="bloque-descripcion">
-            <div class="col-8 event-text">
+            <div class="col-12 col-lg-8 col-md-8 event-text">
                 '.$evento_select["descripcion"].'
             </div>
-            <div class="col-4 box-evento">
+            <div class="col-12 col-lg-4 col-md-4   box-evento">
                  <img class="img-der-evento" src="' . $evento_select['url_cartel'] . '" alt="' . $evento_select['nombre_img_e'] . '">
             </div>
         </div>
