@@ -1,12 +1,31 @@
 <?php
-    include '../bbdd/conexion_bbdd.php';
-    $eventos = new Consultas();
-    $provincias = $eventos->obtenerProvincias();
-    $estilos = $eventos->obtenerEstilos();
-    $tipos = $eventos->obtenerTiposEvento();
+    include_once '../bbdd/conexion_bbdd.php';
+    include_once '../bbdd/Evento.php';
+    $facade = new Consultas();
+    if (isset($_POST['event_name'])) {
+        $evento = new Evento(
+            $_POST['event_name'],
+            $direccion_id, //completar cuando inserte direccion y tal
+            isset($_POST['price']) ? $_POST['price'] : 0,
+            $_POST['event_date'],
+            isset($_POST ['description']) ? $_POST ['description'] : "",
+            $imagen_buscador, //completar cuando inserte imagen y tal
+            $imagen_cartel, //completar cuando inserte imagen y tal
+            $_POST['event_url'],
+            $_POST['music_style'],
+            $_POST['event_type'],
+            "N"
+        );
+
+        
+    }
+
+    $provincias = $facade->obtenerProvincias();
+    $estilos = $facade->obtenerEstilos();
+    $tipos = $facade->obtenerTiposEvento();
 ?>
 
-<form class="form-event" action="process_event.php" method="post">
+<form class="form-event" action="" method="post">
   
   <div class="row">
         <div class="form-group col-sm-4">
