@@ -117,7 +117,7 @@
 
   <div id="img-new-event" class="row">
       <div id="img-cartel-img" class="form-group col-sm-6">
-            <img src="" alt="imagen del cartel"  style="display: none;">
+            <img class="img-der-evento" src="" alt="imagen del cartel"  style="display: none;">
       </div>
       <div id="img-evento-img" class="form-group col-sm-6 event-img">
             <img src="" alt="imagen del evento"  style="display: none;">
