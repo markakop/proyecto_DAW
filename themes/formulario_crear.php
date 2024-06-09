@@ -22,7 +22,7 @@
           <input type="number" id="price" name="price" step="1" placeholder="El precio de la entrada">
       </div>
       <div class="form-group col-sm-4">
-          <label for="event_date"  data-toggle="tooltip" title="La fecha en la que se desarrollara el evento">
+          <label for="event_date"  data-toggle="tooltip" title="La fecha en la que se desarrollara el evento (campo obligatorio)">
                 <i class="fas fa-info-circle"></i> Fecha:
           </label>
           <input type="date" id="event_date" name="event_date" required>
@@ -31,16 +31,16 @@
   
   <div class="row">
       <div class="form-group col-sm-12">
-          <label for="description"  data-toggle="tooltip" title="">
+          <label for="description"  data-toggle="tooltip" title="La descripción del evento que le apareceran a los usuarios cuando busquen el evento">
                 <i class="fas fa-info-circle"></i> Descripción:
           </label>
-          <textarea id="description" name="description" rows="3" cols="50" placeholder="Una breve descripción del evento" required></textarea>
+          <textarea id="description" name="description" rows="3" cols="50" placeholder="Una breve descripción del evento"></textarea>
       </div>
   </div></br>
 
   <div class="row">
       <div class="form-group col-sm-4">
-          <label for="event_url"  data-toggle="tooltip" title="">
+          <label for="event_url"  data-toggle="tooltip" title="El enlace de la web oficial del evento, donde se compraran la entrada del evento">
                 <i class="fas fa-info-circle"></i> URL del evento:
           </label>
           <input type="url" id="event_url" name="event_url" placeholder="URL de la pagina para la compra de entradas" required>
@@ -87,7 +87,7 @@
           </select>
       </div>
       <div class="form-group col-sm-4">
-          <label for="event_type"  data-toggle="tooltip" title="">Tipo de evento:</label>
+          <label for="event_type">Tipo de evento:</label>
           <select id="event_type" name="tipo-evento" required>
               <option value="">Seleccione el tipo de evento</option>
               <?php
@@ -101,28 +101,29 @@
 
   <div class="row">
       <div class="form-group col-sm-6">
-          <label for="imagen-cartel"  data-toggle="tooltip" title="">
+          <label for="img-cartel"  data-toggle="tooltip" title="La imagen del cartel del evento. Sus dimensiones tienen que ser de 1340x496 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
                 <i class="fas fa-info-circle"></i> Imagen del cartel:
           </label>
-          <input type="url" id="imagen-cartel" name="imagen-cartel" placeholder="URL de la imagen del cartel del evento">
+          <input type="url" id="img-cartel" name="img-cartel" placeholder="URL de la imagen del cartel del evento">
       </div>
 
       <div class="form-group col-sm-6">
-          <label for="imagen-buscador"  data-toggle="tooltip" title="">
-            <i class="fas fa-info-circle"></i> Imagen del evento:
+          <label for="img-evento"  data-toggle="tooltip" title="La imagen del evento. Sus dimensiones tienen que ser de 600x750 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
+                <i class="fas fa-info-circle"></i> Imagen del evento:
           </label>
-          <input type="url" id="event_url" name="event_url" placeholder="URL de la imagen del evento">
+          <input type="url" id="img-evento" name="img-evento" placeholder="URL de la imagen del evento">
       </div>
   </div></br>
 
-  <div id="img-new-event" class="row" style="display: none;">
-      <div class="form-group col-sm6">
-          <img src="" alt="">
+  <div id="img-new-event" class="row">
+      <div id="img-cartel-img" class="form-group col-sm-6">
+            <img src="" alt="imagen del cartel"  style="display: none;">
       </div>
-      <div class="form-group col-sm6">
-          <img src="" alt="">
+      <div id="img-evento-img" class="form-group col-sm-6 event-img">
+            <img src="" alt="imagen del evento"  style="display: none;">
       </div>
-  </div>
+      </br>
+  </div></br>
 
   <button type="submit" class="btn btn-primary">Crear evento</button>
 </form></br>
