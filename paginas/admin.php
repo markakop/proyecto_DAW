@@ -13,7 +13,7 @@ if ($datos_eventos > 0) { ?>
     <table cellpadding="2" cellspacing="0" width="100%">
         <form name="listado">
             <tr>
-                <td colspan="6" height="10"></td>
+                <td colspan="1" height="10"><a class="button-home" href="../paginas/home.php">HOME</a></td>
             </tr>
             <tr bgcolor="D9D9D9" class="fixed-row">
                 <td height="25"><SPAN CLASS="txtsubtitu">Nombre evento</SPAN></td>

@@ -105,6 +105,23 @@ td.td-background {
     background-color: #D6DFE2;
 }
 
+a.button-home:hover {
+    background: var(--Primary-600, #6A999E);
+}
+
+a.button-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-align: center;
+    font-style: normal;
+    letter-spacing: -0.5px;
+    gap: 10px;
+    background: var(--Primary-400, #91B4B7);
+    color: var(--Secondary-50, #F1EFED);
+}
+
 input.margin-top-inpt {
     margin-top: 6px;
 }
