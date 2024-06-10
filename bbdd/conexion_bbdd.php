@@ -1,8 +1,9 @@
 <?php
+include_once 'Evento.php';
 class Consultas {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     private $dbname = "entranet";
     private $conn;
 
@@ -56,9 +57,24 @@ class Consultas {
         }
     }
 
+    public function insertarEvento($evento) {
+        $sql = "INSERT INTO eventos (nombre, direccion_id, precio, fecha, descripcion, imagen_buscador, imagen_cartel, url_compra, id_estilo, id_tipo_evento, activo)
+                VALUES ('$evento->nombre',$evento->direccion_id,$evento->precio,'$evento->fecha',
+                    '$evento->descripcion',$evento->imagen_buscador,$evento->imagen_cartel,'$evento->url_compra',
+                    $evento->id_estilo,$evento->id_tipo_evento,'$evento->activo')";
+        $this->ejecutarConsulta($sql);
+    }
+
+    public function insertarImagen($nombre,$url) {
+        $sql = "INSERT INTO imagenes(nombre,url)
+                VALUES ('$nombre','$url')";
+        $this->ejecutarConsulta($sql);
+        return $this->conn->insert_id;
+    }
+
     // Método para obtener todos los eventos para el HOME
     public function obtenerEventos() {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo
@@ -67,7 +83,7 @@ class Consultas {
     }
 
     public function obtenerEventosAdmin() {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo";
@@ -76,7 +92,7 @@ class Consultas {
 
     // Método para obtener todos los eventos para el HOME con filtro
     public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, i.extension, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es USING(id_estilo)

@@ -3,21 +3,32 @@
     include_once '../bbdd/Evento.php';
     $consultas = new Consultas();
     if (isset($_POST['event_name'])) {
+        //insertar las imagenes
+        $nombre_img = str_replace(' ', '_',$_POST['event_name']);
+        $id_buscador = $consultas->insertarImagen($nombre_img,$_POST['img-evento']);
+        $id_cartel = $consultas->insertarImagen($nombre_img."_cartel",$_POST['img-cartel']);
+
+        //completar con cosas de la direccion
+
         $evento = new Evento(
             $_POST['event_name'],
-            $direccion_id, //completar cuando inserte direccion y tal
-            isset($_POST['price']) ? $_POST['price'] : 0,
+            5, //completar cuando inserte direccion y tal
+            $_POST['price']!="" ? $_POST['price'] : (int) 0,
             $_POST['event_date'],
             isset($_POST ['description']) ? $_POST ['description'] : "",
-            $imagen_buscador, //completar cuando inserte imagen y tal
-            $imagen_cartel, //completar cuando inserte imagen y tal
+            $id_buscador,
+            $id_cartel,
             $_POST['event_url'],
             $_POST['music_style'],
             $_POST['event_type'],
             "N"
         );
 
-        
+        $consultas->insertarEvento($evento);
+       
+        //Logica para enviar correo
+
+        //header("Location: email.php");
     }
 
     $provincias = $consultas->obtenerProvincias();
@@ -26,9 +37,18 @@
 ?>
 
 <form class="form-event" action="" method="post">
+
+  <div class="row">
+        <div class="">
+            <label for="email" data-toggle="tooltip" title="Su correo electrónico, le mandaremos un correo cuando comprobemos que su evento esta correctamente insertado y subamos su evento (campo obligatorio)">
+                <i class="fas fa-info-circle"></i> Correo electrónico:
+            </label>
+            <input type="email" id="email" name="email" placeholder="Inserte su correo electrónico" required>
+        </div>
+  </div></br>
   
   <div class="row">
-        <div class="form-group col-sm-4">
+      <div class="form-group col-sm-4">
           <label for="event_name" data-toggle="tooltip" title="El nombre de su evento (campo obligatorio)">
                 <i class="fas fa-info-circle"></i> Nombre del evento:
           </label>
@@ -96,7 +116,7 @@
 
       <div class="form-group col-sm-4">
           <label for="music_style"  data-toggle="tooltip" title="">Estilo de música:</label>
-          <select id="music_style" name="estilo-musical" required>
+          <select id="music_style" name="music_style" required>
               <option value="">Seleccione el estilo musical de su evento</option>
               <?php
                   foreach ($estilos as $estilo) {
@@ -107,7 +127,7 @@
       </div>
       <div class="form-group col-sm-4">
           <label for="event_type">Tipo de evento:</label>
-          <select id="event_type" name="tipo-evento" required>
+          <select id="event_type" name="event_type" required>
               <option value="">Seleccione el tipo de evento</option>
               <?php
                   foreach ($tipos as $tipo) {
@@ -127,7 +147,7 @@
       </div>
 
       <div class="form-group col-sm-6">
-          <label for="img-evento"  data-toggle="tooltip" title="La imagen del evento. Sus dimensiones tienen que ser de 1340x496 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
+          <label for="img-evento"  data-toggle="tooltip" title="La imagen del evento. Sus dimensiones tienen que ser de 1340x496 o proporcional (como 567x210). Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
                 <i class="fas fa-info-circle"></i> Imagen del evento:
           </label>
           <input type="url" id="img-evento" name="img-evento" placeholder="URL de la imagen del evento">
@@ -137,13 +157,30 @@
   <div id="img-new-event" class="row">
     
       <div id="img-cartel-img" class="form-group col-sm-6">
+            <div class="container" style="display: none;">
+                <div class="cargando">
+                    <div class="pelotas"></div>
+                    <div class="pelotas"></div>
+                    <div class="pelotas"></div>
+                    <span class="texto-cargando">Cargando...</span>
+                </div>
+            </div>
             <img class="img-der-evento" src="" alt="imagen del cartel"  style="display: none;">
       </div>
       <div id="img-evento-img" class="form-group col-sm-6 event-img">
+            <div class="container" style="display: none;">
+                <div class="cargando">
+                    <div class="pelotas"></div>
+                    <div class="pelotas"></div>
+                    <div class="pelotas"></div>
+                    <span class="texto-cargando">Cargando...</span>
+                </div>
+            </div>
             <img src="" alt="imagen del evento"  style="display: none;">
       </div>
       </br>
   </div></br>
 
-  <button type="submit" class="btn btn-primary">Crear evento</button>
+  <button type="" class="btn btn-primary"style="display: none;">Crear evento</button>
+  <button type="submit" id="envio">Crear evento</button>
 </form></br>
