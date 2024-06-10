@@ -9,10 +9,11 @@
         $id_cartel = $consultas->insertarImagen($nombre_img."_cartel",$_POST['img-cartel']);
 
         //completar con cosas de la direccion
+        $id_direccion = 5;
 
         $evento = new Evento(
             $_POST['event_name'],
-            5, //completar cuando inserte direccion y tal
+            $id_direccion,
             $_POST['price']!="" ? $_POST['price'] : (int) 0,
             $_POST['event_date'],
             isset($_POST ['description']) ? $_POST ['description'] : "",
@@ -95,15 +96,10 @@
             ?>
           </select>
       </div>
-      <div class="form-group col-sm-4">
+      <div class="form-group col-sm-4" style="display: none;">
           <label for="locallidad">Localidad:</label>
           <select id="localidad" name="localidad" required>
               <option value="">Seleccione una localidad:</option>
-              <?php 
-                  foreach ($provincias as $provincia) {
-                    echo "<option value='".$provincia["id_provincia"]."'>". mb_convert_encoding($provincia["provincia"], 'UTF-8', 'auto')."</option>";
-                  }
-            ?>
           </select>
       </div>
   </div></br>
