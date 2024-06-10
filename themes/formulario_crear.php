@@ -9,6 +9,9 @@
         $id_cartel = $consultas->insertarImagen($nombre_img."_cartel",$_POST['img-cartel']);
 
         //completar con cosas de la direccion
+        //Primero se comprueba si existe una direccion con esa calle y en esa localidad
+        //Si existe: se coge ese id
+        //En caso contrario, se añade
         $id_direccion = 5;
 
         $evento = new Evento(
@@ -96,8 +99,10 @@
             ?>
           </select>
       </div>
-      <div class="form-group col-sm-4" style="display: none;">
-          <label for="locallidad">Localidad:</label>
+      <div class="form-group col-sm-4"  data-toggle="tooltip" title="En caso de no encontrar su localidad, porfavor, vaya al apartado de Contacta con nosotros para hacernoslo saber." style="display: none;">
+          <label for="locallidad">
+                <i class="fas fa-info-circle"></i>Localidad:
+          </label>
           <select id="localidad" name="localidad" required>
               <option value="">Seleccione una localidad:</option>
           </select>
