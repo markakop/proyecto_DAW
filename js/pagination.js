@@ -61,7 +61,7 @@ class Pagination {
             `<div class="evento-container">
             
                 <div class="event-img">
-                    <img src="${eventos.url}">
+                    <img class="img-event-fijo" src="${eventos.url}">
                 </div>
 
                 <div class="bloque">

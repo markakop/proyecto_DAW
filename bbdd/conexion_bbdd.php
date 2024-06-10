@@ -2,7 +2,7 @@
 class Consultas {
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "root";
+    private $password = "";
     private $dbname = "entranet";
     private $conn;
 
