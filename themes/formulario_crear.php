@@ -1,7 +1,7 @@
 <?php
     include_once '../bbdd/conexion_bbdd.php';
     include_once '../bbdd/Evento.php';
-    $facade = new Consultas();
+    $consultas = new Consultas();
     if (isset($_POST['event_name'])) {
         $evento = new Evento(
             $_POST['event_name'],
@@ -20,9 +20,9 @@
         
     }
 
-    $provincias = $facade->obtenerProvincias();
-    $estilos = $facade->obtenerEstilos();
-    $tipos = $facade->obtenerTiposEvento();
+    $provincias = $consultas->obtenerProvincias();
+    $estilos = $consultas->obtenerEstilos();
+    $tipos = $consultas->obtenerTiposEvento();
 ?>
 
 <form class="form-event" action="" method="post">
@@ -120,14 +120,14 @@
 
   <div class="row">
       <div class="form-group col-sm-6">
-          <label for="img-cartel"  data-toggle="tooltip" title="La imagen del cartel del evento. Sus dimensiones tienen que ser de 1340x496 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
+          <label for="img-cartel"  data-toggle="tooltip" title="La imagen del cartel del evento. Sus dimensiones tienen que ser de 600x750 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
                 <i class="fas fa-info-circle"></i> Imagen del cartel:
           </label>
           <input type="url" id="img-cartel" name="img-cartel" placeholder="URL de la imagen del cartel del evento">
       </div>
 
       <div class="form-group col-sm-6">
-          <label for="img-evento"  data-toggle="tooltip" title="La imagen del evento. Sus dimensiones tienen que ser de 600x750 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
+          <label for="img-evento"  data-toggle="tooltip" title="La imagen del evento. Sus dimensiones tienen que ser de 1340x496 o proporcional. Una vez pongas el enlace de una imagen correctamente, se previsualizara como se vera en la pagina">
                 <i class="fas fa-info-circle"></i> Imagen del evento:
           </label>
           <input type="url" id="img-evento" name="img-evento" placeholder="URL de la imagen del evento">
@@ -135,6 +135,7 @@
   </div></br>
 
   <div id="img-new-event" class="row">
+    
       <div id="img-cartel-img" class="form-group col-sm-6">
             <img class="img-der-evento" src="" alt="imagen del cartel"  style="display: none;">
       </div>
