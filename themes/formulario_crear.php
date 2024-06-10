@@ -28,7 +28,7 @@
        
         //Logica para enviar correo
 
-        //header("Location: email.php");
+        header("Location: email.php");
     }
 
     $provincias = $consultas->obtenerProvincias();
@@ -181,6 +181,6 @@
       </br>
   </div></br>
 
-  <button type="" class="btn btn-primary"style="display: none;">Crear evento</button>
-  <button type="submit" id="envio">Crear evento</button>
+  <div id="button-envio" style="width: 100%;" class="btn btn-primary">Crear evento</div>
+  <button type="submit" id="envio" style="display: none;">Crear evento</button>
 </form></br>

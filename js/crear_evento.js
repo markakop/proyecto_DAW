@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const imgCartelDiv = document.getElementById("img-cartel-img");
     const imgEventoImg = imgEventoDiv.querySelector("img"); // Selecciona la imagen dentro del div
     const imgCartelImg = imgCartelDiv.querySelector("img"); // Selecciona la imagen dentro del div
+    const buttonEnvio = document.getElementById("button-envio");
+    const envioButton = document.getElementById("envio");
 
     // Crear mensajes de error
     const imgEventoError = document.createElement("p");
@@ -54,9 +56,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-    
+
+    // Se añaden los eventos de cambio de imagen
     imgEventoInput.addEventListener("input", (e) => {
-        const url = e.target.value;
+        let url = e.target.value;
         if (url === "") {
             imgEventoImg.style.display = "none";
             imgEventoImg.src = "";
@@ -77,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     imgCartelInput.addEventListener("input", (e) => {
-        const url = e.target.value;
+        let url = e.target.value;
         if (url === "") {
             imgCartelImg.style.display = "none";
             imgCartelImg.src = "";
@@ -95,5 +98,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
+    });
+
+    // Se añade el evento de envío de formulario, comprobando que las imágenes están bien puestas
+    buttonEnvio.addEventListener("click", function() {
+        let imgEventoUrl = imgEventoInput.value;
+        let imgCartelUrl = imgCartelInput.value;
+
+        canLoadImage(imgEventoUrl, function(validEvento) {
+
+            // Comprobar ambas imágenes después de validar imgEvento
+            canLoadImage(imgCartelUrl, function(validCartel) {
+
+                // Alertar si alguna imagen no es válida
+                if (validEvento && validCartel) {
+                    envioButton.click();
+                } else {
+                    alert("Las URL de las imágenes no son válidas Vuelva a probar.");
+                }
+            });
+        });
     });
 });
