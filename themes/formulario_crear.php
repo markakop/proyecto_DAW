@@ -8,11 +8,11 @@
         $id_buscador = $consultas->insertarImagen($nombre_img,$_POST['img-evento']);
         $id_cartel = $consultas->insertarImagen($nombre_img."_cartel",$_POST['img-cartel']);
 
-        //completar con cosas de la direccion
-        //Primero se comprueba si existe una direccion con esa calle y en esa localidad
-        //Si existe: se coge ese id
-        //En caso contrario, se añade
-        $id_direccion = 5;
+        //La localidad del evento. En caso de no existir la localidad, se insertara en la bd
+        $id_localidad = $consultas->comprobarLocalidad($_POST['localidad'],$_POST['provincia']);
+        //La dirección del evento. En caso de no existir la dirección, se insertara en la bd
+        $id_direccion = $consultas->comprobarDireccion($_POST['calle'],$id_localidad);
+            
 
         $evento = new Evento(
             $_POST['event_name'],
@@ -89,8 +89,8 @@
           <input type="url" id="event_url" name="event_url" placeholder="URL de la pagina para la compra de entradas" required>
       </div>
       <div class="form-group col-sm-4">
-          <label for="province">Provincia:</label>
-          <select id="province" name="province" required>
+          <label for="provincia">Provincia:</label>
+          <select id="provincia" name="provincia" required>
               <option value="">Seleccione la provincia donde se realizara su evento</option>
               <?php
                   foreach ($provincias as $provincia) {
@@ -99,20 +99,18 @@
             ?>
           </select>
       </div>
-      <div class="form-group col-sm-4"  data-toggle="tooltip" title="En caso de no encontrar su localidad, porfavor, vaya al apartado de Contacta con nosotros para hacernoslo saber." style="display: none;">
+      <div class="form-group col-sm-4"  data-toggle="tooltip" title="La ciudad/pueblo donde se desarrollara el evento, escriba su nombre">
           <label for="locallidad">
                 <i class="fas fa-info-circle"></i>Localidad:
           </label>
-          <select id="localidad" name="localidad" required>
-              <option value="">Seleccione una localidad:</option>
-          </select>
+          <input type="text" id="calle" name="calle" placeholder="La localidad donde se desarrollara el evento" required>
       </div>
   </div></br>
 
   <div class="row">
       <div class="form-group col-sm-4">
-          <label for="street">Calle:</label>
-          <input type="text" id="street" name="calle" placeholder="La calle del evento" required>
+          <label for="calle">Calle:</label>
+          <input type="text" id="calle" name="calle" placeholder="La calle del evento" required>
       </div>
 
       <div class="form-group col-sm-4">

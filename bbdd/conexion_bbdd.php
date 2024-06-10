@@ -173,8 +173,40 @@ class Consultas {
     }
 
     public function obtenerDirecciones() {
-        $sql = "SELECT * FROM Direcciones";
+        $sql = "SELECT * FROM direcciones";
         return $this->obtenerResultados($sql);
+    }
+
+    public function comprobarDireccion($calle,$id_localidad) {
+        //Primero se comprueba si existe una direccion con esa calle y en esa localidad
+        $sql = "SELECT * FROM direcciones 
+                WHERE calle = '$calle'
+                  AND id_localidad=$id_localidad";
+        $result = $this->obtenerResultados($sql);
+        //Si existe: se coge ese id, en caso contrario, se añade y se coge el id nuevo   
+        if (count($result)==0) {
+            $insert = "INSERT INTO direcciones(calle,id_localidad) VALUES('$calle',$id_localidad)";
+            $this->obtenerResultados($insert);
+            return $this->conn->insert_id;
+        }
+        return $result[0]['id_direccion'];
+    }
+
+    public function comprobarLocalidad($localidad,$id_provincia) {
+        //Paso el nombre de la localidad para que la primera letra sea en mayuscula y el resto en minuscula
+        $localidad = ucfirst(strtolower($localidad));
+        //Primero se comprueba si existe una localidad con ese nombre y en esa provincia
+        $sql = "SELECT * FROM localidades 
+                WHERE nombre = '$localidad'
+                  AND id_provincia=$id_provincia";
+        $result = $this->obtenerResultados($sql);
+        //Si existe: se coge ese id, en caso contrario, se añade y se coge el id nuevo   
+        if (count($result)==0) {
+            $insert = "INSERT INTO localidades(nombre,id_provincia) VALUES('$localidad',$id_provincia)";
+            $this->obtenerResultados($insert);
+            return $this->conn->insert_id;
+        }
+        return $result[0]['id_direccion'];
     }
 
     // Método para realizar una consulta y devolver los resultados
@@ -196,8 +228,7 @@ class Consultas {
     }
 
     // Método para ejecutar consultas que no devuelven resultados
-    private function ejecutarConsulta($sql)
-    {
+    private function ejecutarConsulta($sql) {
         if ($this->conn->query($sql) === TRUE) {
             return true;
         } else {
@@ -206,8 +237,7 @@ class Consultas {
     }
 
     // Método para cerrar la conexión a la base de datos
-    public function cerrarConexion()
-    {
+    public function cerrarConexion() {
         $this->conn->close();
     }
 }
