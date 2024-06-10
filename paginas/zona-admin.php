@@ -42,7 +42,7 @@
     <main>
         <div class="container-login">
             <div class="img-login">
-                <img class="img-login" src="../img/iconos/login.webp" width="100%" alt="Imagen login">
+                <img class="img-login-img" src="../img/iconos/login.webp" width="100%" alt="Imagen login">
             </div>
 
             <div class="login-block">
