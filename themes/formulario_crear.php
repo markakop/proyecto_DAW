@@ -103,7 +103,7 @@
           <label for="locallidad">
                 <i class="fas fa-info-circle"></i>Localidad:
           </label>
-          <input type="text" id="calle" name="calle" placeholder="La localidad donde se desarrollara el evento" required>
+          <input type="text" id="localidad" name="localidad" placeholder="La localidad donde se desarrollara el evento" required>
       </div>
   </div></br>
 
