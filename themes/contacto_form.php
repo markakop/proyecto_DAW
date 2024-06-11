@@ -8,7 +8,7 @@ if (isset($_POST['email'])) {
 
 <form class="form-event" method="post" action="">
   <div class="">
-    <label for="email" data-toggle="tooltip" title="Su correo electrónico, le mandaremos un correo cuando comprobemos que su evento esta correctamente insertado y subamos su evento (campo obligatorio)">
+    <label for="email" data-toggle="tooltip" title="Su correo electrónico, le contestaremos enviandole un email a este correo">
       <i class="fas fa-info-circle"></i> Correo electrónico:
     </label>
     <input type="email" id="email" name="email" placeholder="Inserte su correo electrónico" required>
