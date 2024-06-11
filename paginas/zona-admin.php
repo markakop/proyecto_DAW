@@ -36,7 +36,7 @@
 
 <body>
     <header>
-        <?php include '../themes/nav.php'; ?>
+        <?php include '../themes/general/nav.php'; ?>
     </header>
 
     <main>

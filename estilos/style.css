@@ -294,7 +294,7 @@ img.img-buscar {
   color: white;
 }
 
-.img-event-fijo{
+.img-event-fijo {
   width: 100%;
   height: 181px;
 }
@@ -336,6 +336,48 @@ img.img-nombre {
   line-height: 24px;
 }
 
+.text-enviado {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  text-align: center;
+  font-size: 85px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100px;
+  letter-spacing: -2px;
+  animation: colorChange 3s infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    color: #FF0000;
+  }
+
+  25% {
+    color: #FFFF00;
+  }
+
+  50% {
+    color: #00FF00;
+  }
+
+  75% {
+    color: #00FFFF;
+  }
+
+  100% {
+    color: #FF00FF;
+  }
+}
+
+.container-enviado {
+  padding: 30px;
+  background-image: url(https://i0.wp.com/blackworks.es/wp-content/uploads/2024/04/20240323_@GuilleGS_BlackWorks_Ifema_Madrid_LOGO_4000px_9-1-scaled.jpg?fit=2560%2C1707&ssl=1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .descripcion-evnt {
   padding: 20px 50px;
 }
@@ -362,7 +404,7 @@ img.img-nombre {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  color: white;
+  color: rgb(171 171 171);
   font-size: 20px;
   line-height: 24px;
 }
@@ -684,47 +726,52 @@ a.navbar-brand.text-light {
 @import url('//fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,800&display=swap');
 
 
-.cargando{
-    width: 120px;
-    height: 90px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin: 0 auto; 
-    margin-top: 4em;
+.cargando {
+  width: 120px;
+  height: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 4em;
 }
-.texto-cargando{ 
-  padding-top:20px
-  
+
+.texto-cargando {
+  padding-top: 20px
 }
-.cargando span{
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #00b8de;
+
+.cargando span {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #00b8de;
 }
+
 .pelotas {
-    width: 30px;
-    height: 30px;
-    background-color: #00b8de;
-    animation: salto .5s alternate
-    infinite;
-  border-radius: 50%  
+  width: 30px;
+  height: 30px;
+  background-color: #00b8de;
+  animation: salto .5s alternate infinite;
+  border-radius: 50%
 }
+
 .pelotas:nth-child(2) {
-    animation-delay: .18s;
+  animation-delay: .18s;
 }
+
 .pelotas:nth-child(3) {
-    animation-delay: .37s;
+  animation-delay: .37s;
 }
+
 @keyframes salto {
-    from {
-        transform: scaleX(1.25);
-    }
-    to{
-        transform: 
-        translateY(-50px) scaleX(1);
-    }
+  from {
+    transform: scaleX(1.25);
+  }
+
+  to {
+    transform:
+      translateY(-50px) scaleX(1);
+  }
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1760px) {
@@ -767,9 +814,20 @@ a.navbar-brand.text-light {
     line-height: 22px;
   }
 
+  .text-enviado {
+    font-size: 65px;
+    line-height: 65px;
+  }
+
 }
 
 @media screen and (min-width: 701px) and (max-width: 1399px) {
+
+  .text-enviado {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
   a.nav-link.text-light {
     font-size: 17px;
     line-height: 17px;
@@ -971,5 +1029,15 @@ a.navbar-brand.text-light {
 
   #buscador {
     width: 100%;
+  }
+
+  .text-enviado {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .container-enviado {
+    padding: 20px;
+
   }
 }

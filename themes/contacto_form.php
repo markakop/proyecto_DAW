@@ -1,19 +1,27 @@
 <?php
-    if (isset($_POST['body'])) {
-      //enviar corrreo
-    }
+include_once '../bbdd/enviar_email.php';
+if (isset($_POST['email'])) {
+  sendEmailContact($_POST['email']);
+  header("location: ../paginas/home.php");
+}
 ?>
 
 <form class="form-event" method="post" action="">
+  <div class="">
+    <label for="email" data-toggle="tooltip" title="Su correo electrónico, le mandaremos un correo cuando comprobemos que su evento esta correctamente insertado y subamos su evento (campo obligatorio)">
+      <i class="fas fa-info-circle"></i> Correo electrónico:
+    </label>
+    <input type="email" id="email" name="email" placeholder="Inserte su correo electrónico" required>
+  </div>
   <div class="form-group">
     <label for="subject" data-toggle="tooltip" title="Explica en pocas palabras el motivo por el cual quiere contactar con nosotros">
-        <i class="fas fa-info-circle"></i> Asunto:
+      <i class="fas fa-info-circle"></i> Asunto:
     </label>
     <input type="text" class="form-control" id="subject" placeholder="Ingrese el asunto" required>
   </div></br>
   <div class="form-group">
     <label for="body" data-toggle="tooltip" title="Cuantanos...">
-        <i class="fas fa-info-circle"></i> Cuerpo:
+      <i class="fas fa-info-circle"></i> Cuerpo:
     </label>
     <textarea class="form-control" id="body" rows="5" placeholder="Ingrese el cuerpo" required></textarea>
   </div></br>

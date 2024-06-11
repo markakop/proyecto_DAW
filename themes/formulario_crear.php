@@ -1,6 +1,7 @@
 <?php
     include_once '../bbdd/conexion_bbdd.php';
     include_once '../bbdd/Evento.php';
+    include_once '../bbdd/enviar_email.php';
     $consultas = new Consultas();
     if (isset($_POST['event_name'])) {
         //insertar las imagenes
@@ -29,10 +30,13 @@
         );
 
         $consultas->insertarEvento($evento);
+        sendEmail($_POST['email'],$_POST['event_name']);
+        
+        
        
         //Logica para enviar correo
 
-        header("Location: email.php");
+        header("Location: enviado.php");
     }
 
     $provincias = $consultas->obtenerProvincias();
