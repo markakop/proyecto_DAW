@@ -12,7 +12,7 @@ if (isset($_POST['email'])) {
       <i class="fas fa-info-circle"></i> Correo electrónico:
     </label>
     <input type="email" id="email" name="email" placeholder="Inserte su correo electrónico" required>
-  </div>
+  </div></br>
   <div class="form-group">
     <label for="subject" data-toggle="tooltip" title="Explica en pocas palabras el motivo por el cual quiere contactar con nosotros">
       <i class="fas fa-info-circle"></i> Asunto:
