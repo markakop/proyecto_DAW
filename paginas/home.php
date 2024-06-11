@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Inicio</title>
+    <title>Entranet</title>
     <?php include '../bbdd/conexion_bbdd.php';
     $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
     $fecha = isset($_POST["fecha"]) ? $_POST["fecha"] : "";
