@@ -10,6 +10,9 @@
                     <a class="nav-link text-light" href="crear_evento.php">Crear evento</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-light" href="contacto.php">Contacta con nosotros</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-light" href="zona-admin.php" >Zona admin</a>
                 </li>
             </ul>

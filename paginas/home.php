@@ -9,11 +9,17 @@
     $estilo = isset($_POST["estilo"]) ? $_POST["estilo"] : "";
     $tipo = isset($_GET["tipo"]) ? $_GET["tipo"] : "";
     $provincia = isset($_GET["provincia"]) ? $_GET["provincia"] : "";
-    $eventos = new Consultas();
+    $consultas = new Consultas();
     if ($nombre != "" || $fecha != "" || $estilo != "" || $tipo !="" || $provincia !="") {
-        $datos_eventos = $eventos->obtenerEventosFiltro($nombre, $fecha, $estilo, $tipo, $provincia);
+        $datos_eventos = $consultas->obtenerEventosFiltro($nombre, $fecha, $estilo, $tipo, $provincia);
     } else {
-        $datos_eventos = $eventos->obtenerEventos();
+        $estilo = isset($_GET["estilo"]) ? $_GET["estilo"] : "";
+        if ($estilo == "")
+            $datos_eventos = $consultas->obtenerEventos();
+        else {
+            $estilo = $consultas->obtenerIdEstiloEveto($estilo);
+            $datos_eventos = $consultas->obtenerEventosFiltro($nombre, $fecha, $estilo, $tipo, $provincia);
+        }
     }
 
 
@@ -35,7 +41,7 @@
 
 <body>
     <header>
-        <?php include '../themes/nav.php'; ?>
+        <?php include '../themes/general/nav.php'; ?>
     </header>
 
     <main>
@@ -46,8 +52,8 @@
     </main>
 
     <footer>
-        <?php include '../themes/prefooter.php'; ?>
-        <?php include '../themes/footer.php'; ?>
+        <?php include '../themes/general/prefooter.php'; ?>
+        <?php include '../themes/general/footer.php'; ?>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

@@ -18,7 +18,7 @@
     <header>
         
         <?php
-        include '../themes/nav.php';
+        include '../themes/general/nav.php';
         ?>
     </header>
 
@@ -38,8 +38,8 @@
 
     <footer>
         <?php
-        include '../themes/prefooter.php';
-        include '../themes/footer.php';
+        include '../themes/general/prefooter.php';
+        include '../themes/general/footer.php';
         ?>
     </footer>
 

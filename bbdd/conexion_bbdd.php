@@ -164,12 +164,17 @@ class Consultas {
     }
 
     public function obtenerEstiloEvento($evento_nombre) {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, i.extension extension, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo 
                 WHERE es.ds_estilo='$evento_nombre'";
         return $this->obtenerResultados($sql);
+    }
+
+    public function obtenerIdEstiloEveto($nombre) {
+        $sql = "SELECT id_estilo FROM estilos WHERE ds_estilo='$nombre';";
+        return $this->obtenerResultados($sql)[0]['id_estilo'];
     }
 
     public function obtenerDirecciones() {

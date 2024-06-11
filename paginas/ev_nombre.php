@@ -13,7 +13,7 @@
 <body>
     <header>
         <?php
-        include '../themes/nav.php';
+        include '../themes/general/nav.php';
         include '../bbdd/conexion_bbdd.php'; 
 
         $eventos = new Consultas();
@@ -37,8 +37,8 @@
 
     <footer>
         <?php
-            include '../themes/prefooter.php';
-            include '../themes/footer.php';
+            include '../themes/general/prefooter.php';
+            include '../themes/general/footer.php';
         ?>
     </footer>
 

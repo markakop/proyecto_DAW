@@ -82,7 +82,7 @@ class Pagination {
 
                     <div class="buttons">
                         <div class="button-event">
-                            <a class="button-event-cat" href="tipo_evento.php?estilo=${eventos.estilo}">${eventos.estilo}</a>
+                            <a class="button-event-cat" href="home.php?estilo=${eventos.estilo}">${eventos.estilo}</a>
                         </div>
                         <div class="button-categoria">
                             <a class="button-event-red" href="ev_nombre.php?id_evento=${eventos.id}">Ver</a>

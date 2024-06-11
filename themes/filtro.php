@@ -1,5 +1,5 @@
 <?php
-     $estilos = $eventos->obtenerEstilos();
+    $estilos = $consultas->obtenerEstilos();
 ?>
 <div class="container-fluid filtro">
     <div class="row-12 img-filtro">
