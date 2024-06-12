@@ -32,7 +32,5 @@ echo
             </div>
         </div>
     </div>
-</div>';}else{
-    //hacer pagina de error
-}
+</div>';}
 ?>

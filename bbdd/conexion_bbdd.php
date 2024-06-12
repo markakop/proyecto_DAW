@@ -1,14 +1,16 @@
 <?php
 include_once 'Evento.php';
-class Consultas {
+class Consultas
+{
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "root";
+    private $password = "";
     private $dbname = "entranet";
     private $conn;
 
     // Constructor para conectar a la base de datos
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
         // Verificar la conexión
@@ -17,7 +19,8 @@ class Consultas {
         }
     }
 
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $pass = md5($password);
         $sql = "SELECT * FROM usuarios WHERE nombre_usuario='$username' AND pass='$pass'";
 
@@ -25,7 +28,8 @@ class Consultas {
         return !empty($result);
     }
 
-    public function insertarUsuario() {
+    public function insertarUsuario()
+    {
         $password = "123456789";
         $pass = md5($password);
         $sql = "INSERT INTO usuarios VALUES (null,'david_8romero@hotmail.com', 'david8romero', '$pass')";
@@ -37,7 +41,8 @@ class Consultas {
         }
     }
 
-    public function modificarEvento($id, $nombre, $precio, $fecha, $activo, $url_compra) {
+    public function modificarEvento($id, $nombre, $precio, $fecha, $activo, $url_compra)
+    {
         $sql = "UPDATE eventos SET nombre='$nombre', precio=$precio, fecha='$fecha', activo='$activo', url_compra='$url_compra' WHERE id_evento=$id";
 
         if ($this->ejecutarConsulta($sql)) {
@@ -47,7 +52,28 @@ class Consultas {
         }
     }
 
-    public function borrarEvento($id) {
+    public function modificarImagen($id, $img_evento, $img_cartel)
+    {
+        $sql = "SELECT e.imagen_buscador, e.imagen_cartel FROM eventos e 
+                JOIN imagenes ib ON ib.id_imagen=e.imagen_buscador
+                JOIN imagenes ic ON ic.id_imagen=e.imagen_cartel
+                where e.id_evento=$id";
+        $resultado = $this->obtenerResultados($sql)[0];
+        $id_buscador = $resultado["imagen_buscador"];
+        $id_cartel = $resultado["imagen_cartel"];
+        $sql2 = "UPDATE imagenes SET url='$img_evento' WHERE id_imagen=$id_buscador";
+        $sql3 = "UPDATE imagenes SET url='$img_cartel' WHERE id_imagen=$id_cartel";
+        $result = $this->ejecutarConsulta($sql2);
+        $result2 = $this->ejecutarConsulta($sql3);
+        if ($result && $result2) {
+            return "Realizado";
+        } else {
+            return "Rechazado: " . $this->conn->error;
+        }
+    }
+
+    public function borrarEvento($id)
+    {
         $sql = "DELETE FROM eventos WHERE id_evento = $id";
 
         if ($this->ejecutarConsulta($sql)) {
@@ -57,7 +83,8 @@ class Consultas {
         }
     }
 
-    public function insertarEvento($evento) {
+    public function insertarEvento($evento)
+    {
         $sql = "INSERT INTO eventos (nombre, direccion_id, precio, fecha, descripcion, imagen_buscador, imagen_cartel, url_compra, id_estilo, id_tipo_evento, activo)
                 VALUES ('$evento->nombre',$evento->direccion_id,$evento->precio,'$evento->fecha',
                     '$evento->descripcion',$evento->imagen_buscador,$evento->imagen_cartel,'$evento->url_compra',
@@ -65,7 +92,8 @@ class Consultas {
         $this->ejecutarConsulta($sql);
     }
 
-    public function insertarImagen($nombre,$url) {
+    public function insertarImagen($nombre, $url)
+    {
         $sql = "INSERT INTO imagenes(nombre,url)
                 VALUES ('$nombre','$url')";
         $this->ejecutarConsulta($sql);
@@ -73,7 +101,8 @@ class Consultas {
     }
 
     // Método para obtener todos los eventos para el HOME
-    public function obtenerEventos() {
+    public function obtenerEventos()
+    {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
@@ -82,16 +111,19 @@ class Consultas {
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerEventosAdmin() {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
+    public function obtenerEventosAdmin()
+    {
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, es.ds_estilo estilo, ib.url as buscador, ic.url as cartel
                 FROM eventos e 
-                JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
+                JOIN imagenes ib ON e.imagen_buscador=ib.id_imagen
+                JOIN imagenes ic ON e.imagen_cartel=ic.id_imagen 
                 JOIN estilos es ON e.id_estilo=es.id_estilo";
         return $this->obtenerResultados($sql);
     }
 
     // Método para obtener todos los eventos para el HOME con filtro
-    public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
+    public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "")
+    {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
@@ -123,12 +155,13 @@ class Consultas {
             $sql .= " AND es.id_estilo='$estilo' ";
         if ($tipo != "")
             $sql .= " AND t.tipo_evento='$tipo'";
-        if ($provincia != "") 
+        if ($provincia != "")
             $sql .= " AND p.provincia='$provincia' ";
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerEventoId($id) {
+    public function obtenerEventoId($id)
+    {
         $sql = "SELECT e.nombre nombre, e.fecha fecha, e.descripcion descripcion, e.url_compra url_compra, 
                     d.calle calle, p.provincia provincia, 
                     ib.nombre nombre_img_e, ib.url url_buscador, 
@@ -143,27 +176,32 @@ class Consultas {
         return $this->obtenerResultados($sql)[0];
     }
 
-    public function obtenerProvincias() {
+    public function obtenerProvincias()
+    {
         $sql = "SELECT * FROM provincias;";
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerLocalidadesProvincia($idProvincia) {
+    public function obtenerLocalidadesProvincia($idProvincia)
+    {
         $sql = "SELECT * FROM localidades WHERE id_provincia=$idProvincia;";
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerEstilos() {
+    public function obtenerEstilos()
+    {
         $sql = "SELECT * FROM estilos;";
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerTiposEvento() {
+    public function obtenerTiposEvento()
+    {
         $sql = "SELECT * FROM tipo_evento;";
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerEstiloEvento($evento_nombre) {
+    public function obtenerEstiloEvento($evento_nombre)
+    {
         $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, es.ds_estilo estilo, i.url
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
@@ -172,24 +210,27 @@ class Consultas {
         return $this->obtenerResultados($sql);
     }
 
-    public function obtenerIdEstiloEveto($nombre) {
+    public function obtenerIdEstiloEveto($nombre)
+    {
         $sql = "SELECT id_estilo FROM estilos WHERE ds_estilo='$nombre';";
         return $this->obtenerResultados($sql)[0]['id_estilo'];
     }
 
-    public function obtenerDirecciones() {
+    public function obtenerDirecciones()
+    {
         $sql = "SELECT * FROM direcciones";
         return $this->obtenerResultados($sql);
     }
 
-    public function comprobarDireccion($calle,$id_localidad) {
+    public function comprobarDireccion($calle, $id_localidad)
+    {
         //Primero se comprueba si existe una direccion con esa calle y en esa localidad
         $sql = "SELECT * FROM direcciones 
                 WHERE calle = '$calle'
                   AND id_localidad=$id_localidad";
         $result = $this->obtenerResultados($sql);
         //Si existe: se coge ese id, en caso contrario, se añade y se coge el id nuevo   
-        if (count($result)==0) {
+        if (count($result) == 0) {
             $insert = "INSERT INTO direcciones(calle,id_localidad) VALUES('$calle',$id_localidad)";
             $this->obtenerResultados($insert);
             return $this->conn->insert_id;
@@ -197,7 +238,8 @@ class Consultas {
         return $result[0]['id_direccion'];
     }
 
-    public function comprobarLocalidad($localidad,$id_provincia) {
+    public function comprobarLocalidad($localidad, $id_provincia)
+    {
         //Paso el nombre de la localidad para que la primera letra sea en mayuscula y el resto en minuscula
         $localidad = ucfirst(strtolower($localidad));
         //Primero se comprueba si existe una localidad con ese nombre y en esa provincia
@@ -206,7 +248,7 @@ class Consultas {
                   AND id_provincia=$id_provincia";
         $result = $this->obtenerResultados($sql);
         //Si existe: se coge ese id, en caso contrario, se añade y se coge el id nuevo   
-        if (count($result)==0) {
+        if (count($result) == 0) {
             $insert = "INSERT INTO localidades(nombre,id_provincia) VALUES('$localidad',$id_provincia)";
             $this->obtenerResultados($insert);
             return $this->conn->insert_id;
@@ -215,7 +257,8 @@ class Consultas {
     }
 
     // Método para realizar una consulta y devolver los resultados
-    private function obtenerResultados($sql) {
+    private function obtenerResultados($sql)
+    {
         $result = $this->conn->query($sql);
         $data = array();
 
@@ -233,7 +276,8 @@ class Consultas {
     }
 
     // Método para ejecutar consultas que no devuelven resultados
-    private function ejecutarConsulta($sql) {
+    private function ejecutarConsulta($sql)
+    {
         if ($this->conn->query($sql) === TRUE) {
             return true;
         } else {
@@ -242,7 +286,8 @@ class Consultas {
     }
 
     // Método para cerrar la conexión a la base de datos
-    public function cerrarConexion() {
+    public function cerrarConexion()
+    {
         $this->conn->close();
     }
 }

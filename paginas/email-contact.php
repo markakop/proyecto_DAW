@@ -214,7 +214,7 @@ img,p{margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helv
 <!--[if !mso]>-->
 <td class="t10" style="width:420px;padding:0 0 34px 0;">
 <!--<![endif]-->
-<p class="t9" style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">También puede contactar con nosotros a través del teléfono: 658497298</p></td>
+<p class="t9" style="margin:0;Margin:0;font-family:Albert Sans,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:14px;text-decoration:none;text-transform:none;letter-spacing:-0.56px;direction:ltr;color:#333333;text-align:left;mso-line-height-rule:exactly;mso-text-raise:2px;">Su mensaje: #mensaje</p></td>
 </tr></table>
 </td></tr><tr><td>
 <!--[if mso]>

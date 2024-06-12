@@ -21,6 +21,8 @@ if ($datos_eventos > 0) { ?>
                 <td height="25"><SPAN CLASS="txtsubtitu">Fecha</SPAN></td>
                 <td height="25"><SPAN CLASS="txtsubtitu">Activo</SPAN></td>
                 <td height="25"><SPAN CLASS="txtsubtitu">Url compra</SPAN></td>
+                <td height="25"><SPAN CLASS="txtsubtitu">Imagen evento</SPAN></td>
+                <td height="25"><SPAN CLASS="txtsubtitu">Imagen cartel</SPAN></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -33,11 +35,13 @@ if ($datos_eventos > 0) { ?>
             foreach ($datos_eventos as $evento) {
                 $idP = $evento["id"];
                 echo '<tr class="lines-colors" bgcolor="BDAC7C">';
-                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . $evento["nombre"] . '" size="30"></td>';
-                echo '<td valign="top"><input type="text" name="precio' . $i . '"  value="' . $evento["precio"] . '" size="5"></td>';
-                echo '<td valign="top"><input type="text" name="fecha' . $i . '"  value="' . $evento["fecha"] . '" size="20"></td>';
+                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . $evento["nombre"] . '" size="12"></td>';
+                echo '<td valign="top"><input type="text" name="precio' . $i . '"  value="' . $evento["precio"] . '" size="3"></td>';
+                echo '<td valign="top"><input type="text" name="fecha' . $i . '"  value="' . $evento["fecha"] . '" size="6"></td>';
                 echo '<td valign="top" class="align-active"><input  type="checkbox" name="active' . $i . '" ' . ($evento["activo"] == "S" ? "checked" : "") . '></td>';
-                echo '<td valign="top"><input type="text" size="20" name="url' . $i . '" value="' . $evento["url_compra"] . '"></td>';
+                echo '<td valign="top"><input type="text" size="18" name="url' . $i . '" value="' . $evento["url_compra"] . '"></td>';
+                echo '<td valign="top"><input type="text" size="20" name="url_buscador' . $i . '" value="' . $evento["buscador"] . '"></td>';
+                echo '<td valign="top"><input type="text" size="20" name="url_cartel' . $i . '" value="' . $evento["cartel"] . '"></td>';
 
                 echo '<td class="td-button" valign="top">';
                 echo '<input class="btn-modify" type="button" value="Modificar" onclick="modifica(' . $idP . ', ' . $i . ')">&nbsp;';
@@ -61,6 +65,8 @@ if ($datos_eventos > 0) { ?>
             var fecha = document.getElementsByName('fecha' + index)[0].value;
             var active = document.getElementsByName('active' + index)[0].checked ? 'S' : 'N';
             var url = document.getElementsByName('url' + index)[0].value;
+            var img_evento = document.getElementsByName('url_buscador' + index)[0].value;
+            var cartel = document.getElementsByName('url_cartel' + index)[0].value;
 
             var data = {
                 id: idP,
@@ -68,10 +74,12 @@ if ($datos_eventos > 0) { ?>
                 precio: precio,
                 fecha: fecha,
                 activo: active,
-                url_compra: url
+                url_compra: url,
+                img_evento: img_evento,
+                cartel: cartel
             };
 
-            console.log(data);
+            //console.log(data);
 
             fetch('../bbdd/modificar_evento.php', {
                     method: 'POST',
@@ -83,8 +91,10 @@ if ($datos_eventos > 0) { ?>
                 .then(result => {
                     if (result.success) {
                         console.log(result.success);
+                        alert("Cambio realizado");
                     } else {
                         console.log(result.success);
+                        alert("Fallo");
                     }
                 });
         }
@@ -108,9 +118,11 @@ if ($datos_eventos > 0) { ?>
                     .then(result => {
                         if (result.success) {
                             console.log(result.success);
+                            alert("Evento borrado");
                             location.reload();
                         } else {
                             console.log(result.success);
+                            alert("Fallo");
                         }
                     });
             }
