@@ -40,7 +40,7 @@ function sendEmail($email, $mensaje)
     }
 }
 
-function sendEmailContact($email)
+function sendEmailContact($email,$mensaje)
 {
     $mail = new PHPMailer();
 
@@ -48,6 +48,7 @@ function sendEmailContact($email)
         $url_theme = "../paginas/email-contact.php";
         if (file_exists($url_theme)) {
             $mensajeCliente = file_get_contents($url_theme);
+            $mensajeCliente = str_replace("#mensaje", $mensaje, $mensajeCliente);
         } else {
             throw new Exception("No se encontró la plantilla de email.");
         }
