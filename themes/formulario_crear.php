@@ -1,6 +1,6 @@
 <?php
     include_once '../bbdd/conexion_bbdd.php';
-    include_once '../bbdd/Evento.php';
+    include_once '../bbdd/dominio/Evento.php';
     include_once '../bbdd/enviar_email.php';
     $consultas = new Consultas();
     if (isset($_POST['event_name'])) {
@@ -30,11 +30,8 @@
         );
 
         $consultas->insertarEvento($evento);
+        //Envio de correo
         sendEmail($_POST['email'],$_POST['event_name']);
-        
-        
-       
-        //Logica para enviar correo
 
         header("Location: enviado.php");
     }
