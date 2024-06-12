@@ -8,7 +8,7 @@ if (isset($_POST['email']) && isset($_POST['mensaje'])) {
 ?>
 
 <form class="form-event" method="post" action="">
-  <div class="">
+  <div class="form-group">
     <label for="email" data-toggle="tooltip" title="Su correo electrónico, le contestaremos enviandole un email a este correo">
       <i class="fas fa-info-circle"></i> Correo electrónico:
     </label>

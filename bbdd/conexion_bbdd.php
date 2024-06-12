@@ -1,7 +1,6 @@
 <?php
-include_once 'Evento.php';
-class Consultas
-{
+include_once 'dominio/Evento.php';
+class Consultas {
     private $servername = "127.0.0.1";
     private $username = "root";
     private $password = "";
