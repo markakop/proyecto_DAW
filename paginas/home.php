@@ -67,7 +67,7 @@
             Pagination
         } from "../js/pagination.js";
         PaginationReal = new Pagination({
-            "items_per_page": 6,
+            "items_per_page": 10,
             "data": eventos_java,
             "num_numbers_page": 4
         });
