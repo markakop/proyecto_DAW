@@ -407,6 +407,7 @@ img.img-nombre {
   color: rgb(171 171 171);
   font-size: 20px;
   line-height: 24px;
+  text-align: justify;
 }
 
 /* Formulario crear evento/contacto*/
@@ -669,6 +670,8 @@ form.form-login {
 }
 
 .title-login {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   color: white;
   font-size: 30px;
   font-style: normal;
@@ -678,6 +681,8 @@ form.form-login {
 }
 
 .label-login {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   color: white;
   font-size: 18px;
   font-style: normal;
@@ -687,6 +692,8 @@ form.form-login {
 }
 
 .input-login {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
   padding: 12px 12px;
   border-radius: 4px;
   border: 2px solid #C33622;
@@ -902,7 +909,7 @@ a.navbar-brand.text-light {
 
   .event-text {
     font-size: 17px;
-    line-height: 20px;
+    line-height: 21px;
   }
 
   .titulos {
