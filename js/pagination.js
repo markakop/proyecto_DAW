@@ -36,7 +36,6 @@ class Pagination {
         }
 
         $('#paginator').html(paginator_html);
-
         $('#paginator .page-link').click((e) => {
             e.preventDefault();
             const target_page = $(e.target).text();
@@ -53,17 +52,14 @@ class Pagination {
     showPage(page_number) {
         let result_events;
         result_events = this.data;
-
         const startIndex = (page_number - 1) * this.items_per_page;
         const endIndex = startIndex + this.items_per_page;
         const current_pageData = result_events.slice(startIndex, endIndex);
         const events_elements = current_pageData.map((eventos, index) =>
             `<div class="evento-container">
-            
                 <div class="event-img">
                     <img class="img-event-fijo" src="${eventos.url}">
                 </div>
-
                 <div class="bloque">
                     <div class="eventos-block">
                         <div class="event-titulo">${eventos.nombre}</div>
@@ -79,7 +75,6 @@ class Pagination {
                             <div class="precio"> Precio ${eventos.precio}€</div>
                         </div>
                     </div>
-
                     <div class="buttons">
                         <div class="button-event">
                             <a class="button-event-cat" href="home.php?estilo=${eventos.estilo}">${eventos.estilo}</a>
@@ -88,18 +83,10 @@ class Pagination {
                             <a class="button-event-red" href="ev_nombre.php?id_evento=${eventos.id}">Ver</a>
                         </div>
                     </div>
-
                 </div>
-
             </div>`).join('');
         $('#eventos').html(events_elements);
         this.generatePaginator(page_number);
     }
-
-
-
-
 }
-
-
 export { Pagination }

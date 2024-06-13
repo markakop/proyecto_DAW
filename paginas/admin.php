@@ -67,7 +67,6 @@ if ($datos_eventos > 0) { ?>
             var url = document.getElementsByName('url' + index)[0].value;
             var img_evento = document.getElementsByName('url_buscador' + index)[0].value;
             var cartel = document.getElementsByName('url_cartel' + index)[0].value;
-
             var data = {
                 id: idP,
                 nombre: nombre,
@@ -78,9 +77,7 @@ if ($datos_eventos > 0) { ?>
                 img_evento: img_evento,
                 cartel: cartel
             };
-
             //console.log(data);
-
             fetch('../bbdd/modificar_evento.php', {
                     method: 'POST',
                     headers: {

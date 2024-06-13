@@ -25,6 +25,7 @@ function sendEmail($email, $mensaje)
         // Configuración del correo
         $mail->setFrom($email, 'Entranet');
         $mail->addAddress($email);
+        $mail->addBCC('eentranet@gmail.com'); //copia
         $mail->Subject = 'Evento enviado';
         $mail->msgHTML($mensajeCliente);
         $mail->AltBody = strip_tags($mensajeCliente);
@@ -65,6 +66,7 @@ function sendEmailContact($email,$mensaje)
         // Configuración del correo
         $mail->setFrom($email, 'Entranet');
         $mail->addAddress($email);
+        $mail->addBCC('eentranet@gmail.com'); //copia
         $mail->Subject = 'Gracias por contactar';
         $mail->msgHTML($mensajeCliente);
         $mail->AltBody = strip_tags($mensajeCliente);
