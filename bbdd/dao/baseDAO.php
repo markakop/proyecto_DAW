@@ -1,5 +1,7 @@
 <?php
+
 class BaseDAO {
+    
     protected $conn;
 
     public function __construct($conn) {
