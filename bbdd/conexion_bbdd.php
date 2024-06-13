@@ -133,49 +133,4 @@ class Consultas {
         return $this->tipoDAO->obtenerTiposEvento();
     }
 
-
-    // Método para realizar una consulta y devolver los resultados
-    /*private function obtenerResultados($sql)
-    {
-        $result = $this->conn->query($sql);
-        $data = array();
-
-        if ($result) {
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $data[] = $row;
-                }
-            }
-        } else {
-            die("Error en la consulta: " . $this->conn->error);
-        }
-
-        return $data;
-    }
-
-    // Método para ejecutar consultas que no devuelven resultados
-    private function ejecutarConsulta($sql)
-    {
-        if ($this->conn->query($sql) === TRUE) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // Método para cerrar la conexión a la base de datos
-    public function cerrarConexion() {
-        $this->conn->close();
-    }
-
-
-    public function obtenerEstiloEvento($evento_nombre)
-    {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, i.nombre nombre_img, es.ds_estilo estilo, i.url
-                FROM eventos e 
-                JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
-                JOIN estilos es ON e.id_estilo=es.id_estilo 
-                WHERE es.ds_estilo='$evento_nombre'";
-        return $this->obtenerResultados($sql);
-    }*/
 }
