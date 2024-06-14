@@ -28,6 +28,8 @@
         $evento["nombre"] =   iconv('ISO-8859-1', 'UTF-8', $evento["nombre"]);
         $mostrar_eventos[]= $evento;
     }
+
+    //print_r($mostrar_eventos);
     
     ?>
     <meta charset="utf-8"/>

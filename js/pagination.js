@@ -66,7 +66,7 @@ class Pagination {
                         <div class="texts">
                             <div class="sitio">
                                 <img class="ubicacion" src="../img/iconos/ubicacion.png" alt="">
-                                Castellon
+                                ${eventos.provincia}
                             </div>
                             <div class="fecha">
                                 <img class="calendario" src="../img/iconos/calendario.png" alt="">

@@ -28,10 +28,13 @@ class EventosDAO extends BaseDAO {
     }
 
     public function obtenerEventos() {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url, p.provincia
                 FROM eventos e 
-                JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
+                JOIN imagenes i ON e.imagen_buscador=i.id_imagen
                 JOIN estilos es ON e.id_estilo=es.id_estilo
+                JOIN direcciones d ON e.direccion_id=d.id_direccion
+                JOIN localidades l USING(id_localidad)
+                JOIN provincias p USING(id_provincia)
                 WHERE e.activo='S' ";
         return $this->obtenerResultados($sql);
     }
