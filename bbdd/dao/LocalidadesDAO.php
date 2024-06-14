@@ -23,7 +23,7 @@ class LocalidadesDAO extends BaseDAO {
             $this->obtenerResultados($insert);
             return $this->conn->insert_id;
         }
-        return $result[0]['id_direccion'];
+        return $result[0]['id_localidad'];
     }
 }
 
