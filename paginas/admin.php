@@ -53,7 +53,7 @@ if ($datos_eventos > 0) { ?>
             foreach ($datos_eventos as $evento) {
                 $idP = $evento["id"];
                 echo '<tr class="lines-colors" bgcolor="BDAC7C">';
-                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . $evento["nombre"] . '" size="14"></td>';
+                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . iconv('ISO-8859-1', 'UTF-8', $evento["nombre"]) . '" size="14"></td>';
                 echo '<td valign="top"><input type="text" name="precio' . $i . '"  value="' . $evento["precio"] . '" size="3"></td>';
                 echo '<td valign="top"><input type="text" name="fecha' . $i . '"  value="' . $evento["fecha"] . '" size="6"></td>';
                 echo '<td valign="top" class="align-active"><input  type="checkbox" name="active' . $i . '" ' . ($evento["activo"] == "S" ? "checked" : "") . '></td>';

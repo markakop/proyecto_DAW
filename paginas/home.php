@@ -26,10 +26,10 @@
     $mostrar_eventos = [];
     foreach ($datos_eventos as $evento) {
         $evento["nombre"] =   iconv('ISO-8859-1', 'UTF-8', $evento["nombre"]);
+        $evento["provincia"] =   iconv('ISO-8859-1', 'UTF-8', $evento["provincia"]);
+        $evento["nombre_img"] =   iconv('ISO-8859-1', 'UTF-8', $evento["nombre_img"]);
         $mostrar_eventos[]= $evento;
     }
-
-    //print_r($mostrar_eventos);
     
     ?>
     <meta charset="utf-8"/>
