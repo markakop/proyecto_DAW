@@ -2,14 +2,31 @@
 
 <?php
 include '../bbdd/conexion_bbdd.php';
-$eventos = new Consultas();
 session_start();
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: zona-admin.php");
     exit();
 }
+$eventos = new Consultas();
 $datos_eventos = $eventos->obtenerEventosAdmin();
 if ($datos_eventos > 0) { ?>
+    <style>
+        /* Estilos para la imagen flotante */
+        .image-popup {
+            position: absolute;
+            display: none;
+            z-index: 100;
+            border: 1px solid #ccc;
+            background: #fff;
+            padding: 5px;
+        }
+
+        .image-popup img {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+
     <table cellpadding="2" cellspacing="0" width="100%">
         <form name="listado">
             <tr>
@@ -35,13 +52,13 @@ if ($datos_eventos > 0) { ?>
             foreach ($datos_eventos as $evento) {
                 $idP = $evento["id"];
                 echo '<tr class="lines-colors" bgcolor="BDAC7C">';
-                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . $evento["nombre"] . '" size="12"></td>';
+                echo '<td valign="top"><input type="text" name="nombre' . $i . '"  value="' . $evento["nombre"] . '" size="14"></td>';
                 echo '<td valign="top"><input type="text" name="precio' . $i . '"  value="' . $evento["precio"] . '" size="3"></td>';
                 echo '<td valign="top"><input type="text" name="fecha' . $i . '"  value="' . $evento["fecha"] . '" size="6"></td>';
                 echo '<td valign="top" class="align-active"><input  type="checkbox" name="active' . $i . '" ' . ($evento["activo"] == "S" ? "checked" : "") . '></td>';
                 echo '<td valign="top"><input type="text" size="18" name="url' . $i . '" value="' . $evento["url_compra"] . '"></td>';
-                echo '<td valign="top"><input type="text" size="20" name="url_buscador' . $i . '" value="' . $evento["buscador"] . '"></td>';
-                echo '<td valign="top"><input type="text" size="20" name="url_cartel' . $i . '" value="' . $evento["cartel"] . '"></td>';
+                echo '<td valign="top"><input type="text" size="20" name="url_buscador' . $i . '" value="' . $evento["buscador"] . '" class="hover-image"></td>';
+                echo '<td valign="top"><input type="text" size="20" name="url_cartel' . $i . '" value="' . $evento["cartel"] . '" class="hover-image"></td>';
 
                 echo '<td class="td-button" valign="top">';
                 echo '<input class="btn-modify" type="button" value="Modificar" onclick="modifica(' . $idP . ', ' . $i . ')">&nbsp;';
@@ -57,6 +74,10 @@ if ($datos_eventos > 0) { ?>
             } ?>
         </form>
     </table>
+
+    <div class="image-popup" id="image-popup">
+        <img id="popup-img" src="" alt="Preview">
+    </div>
 
     <script>
         function modifica(idP, index) {
@@ -77,7 +98,6 @@ if ($datos_eventos > 0) { ?>
                 img_evento: img_evento,
                 cartel: cartel
             };
-            //console.log(data);
             fetch('../bbdd/modificar_evento.php', {
                     method: 'POST',
                     headers: {
@@ -97,12 +117,11 @@ if ($datos_eventos > 0) { ?>
         }
 
         function borra(idP) {
-
             var data = {
                 id: idP
             };
 
-            console.log(data);
+            //console.log(data);
 
             if (confirm('¿Está seguro de que desea eliminar este evento?')) {
                 fetch('../bbdd/borrar_evento.php', {
@@ -124,6 +143,31 @@ if ($datos_eventos > 0) { ?>
                     });
             }
         }
+
+        document.querySelectorAll('.hover-image').forEach(function(input) {
+            input.addEventListener('mouseover', function(event) {
+                var imageUrl = event.target.value;
+                if (imageUrl) {
+                    var popup = document.getElementById('image-popup');
+                    var img = document.getElementById('popup-img');
+                    img.src = imageUrl;
+                    popup.style.display = 'block';
+                    popup.style.left = event.pageX + 'px';
+                    popup.style.top = event.pageY + 'px';
+                }
+            });
+
+            input.addEventListener('mousemove', function(event) {
+                var popup = document.getElementById('image-popup');
+                popup.style.left = event.pageX + 'px';
+                popup.style.top = event.pageY + 'px';
+            });
+
+            input.addEventListener('mouseout', function() {
+                var popup = document.getElementById('image-popup');
+                popup.style.display = 'none';
+            });
+        });
     </script>
 
 <?php }
