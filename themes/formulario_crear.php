@@ -31,7 +31,7 @@
 
         $consultas->insertarEvento($evento);
         //Envio de correo
-        //sendEmail($_POST['email'],$_POST['event_name']);
+        sendEmail($_POST['email'],$_POST['event_name']);
 
         header("Location: enviado.php");
     }

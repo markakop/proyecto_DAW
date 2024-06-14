@@ -1,4 +1,5 @@
 <link rel='stylesheet' href='../estilos/productos.min.css' type='text/css' />
+<title>Zona admin</title>
 
 <?php
 include '../bbdd/conexion_bbdd.php';

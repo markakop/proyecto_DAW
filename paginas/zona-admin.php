@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Zona Admin</title>
+    <title>Zona admin</title>
     <?php include '../bbdd/conexion_bbdd.php';
     
     $eventos = new Consultas();

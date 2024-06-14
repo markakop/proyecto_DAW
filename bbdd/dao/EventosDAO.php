@@ -50,7 +50,7 @@ class EventosDAO extends BaseDAO {
 
     // Método para obtener todos los eventos para el HOME con filtro
     public function obtenerEventosFiltro($nombre = "", $fecha = "", $estilo = "", $tipo = "", $provincia = "") {
-        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url
+        $sql = "SELECT e.id_evento id, e.nombre nombre, e.fecha fecha, e.precio precio, e.activo, e.url_compra, i.nombre nombre_img, es.ds_estilo estilo, i.url, p.provincia
                 FROM eventos e 
                 JOIN imagenes i ON e.imagen_buscador=i.id_imagen 
                 JOIN estilos es USING(id_estilo)
